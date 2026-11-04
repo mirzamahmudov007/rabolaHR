@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="uz">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATT — Sozlamalar (Settings) to'liq Figma board</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ============ globals.css tokenlari (aynan) ============ */
+    :root {
+      --canvas: #f6f6f7; --surface: #ffffff; --surface2: #fafafa; --field: #fafafa;
+      --ink: #18181b; --body: #3f3f46; --muted: #71717a; --subtle: #a1a1aa; --line: #eaeaed;
+      --brand: #18181b; --brandhover: #2d2d32; --brandsoft: #f1f1f3; --onbrand: #ffffff;
+      --present: #3f9d6f; --presentsoft: #eaf5ef; --presentink: #247852;
+      --late: #cc8f33; --latesoft: #faf2e4; --lateink: #966218;
+      --absent: #d0584f; --absentsoft: #fbebe9; --absentink: #ac3a32;
+      --leave: #7d70c8; --leavesoft: #f0eeea; --leaveink: #6054b0;
+      --regsoft: #eaf1fc; --regink: #345ea8; --shiftsoft: #e5f4f3; --shiftink: #1c736e;
+    }
+    /* Tailwind preflight: hamma element border-width:0 bilan boshlanadi —
+       UA default button/input ramkasi html.to.design'da qora chiqmasligi uchun */
+    *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; border-width: 0; border-style: solid }
+    body { background: var(--canvas); font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; color: var(--ink);
+      -webkit-font-smoothing: antialiased; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 40px; align-items: flex-start }
+    svg { stroke-linecap: round; stroke-linejoin: round }
+    .board { width: 1440px; background: var(--canvas) }
+    .board-label { width: 1440px; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--subtle) }
+    .tnum { font-variant-numeric: tabular-nums }
+
+    /* ============ AppShell ============ */
+    .app { display: flex; width: 100%; background: var(--canvas); color: var(--ink) }
+    .sb { flex: none; width: 240px; display: flex; flex-direction: column; border-right: 1px solid var(--line); background: var(--surface) }
+    .sb-head { display: flex; height: 64px; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); padding: 0 20px }
+    .sb-logo { display: flex; height: 36px; width: 36px; flex: none; align-items: center; justify-content: center;
+      border-radius: 8px; background: var(--brand); color: var(--onbrand); box-shadow: 0 1px 2px rgba(15,23,42,.08) }
+    .sb-logo svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .sb-t1 { font-size: 15px; font-weight: 700; letter-spacing: -.025em; line-height: 1.1; color: var(--ink) }
+    .sb-t2 { font-size: 12px; color: var(--muted); line-height: 1.1; margin-top: 2px }
+    .sb-nav { flex: 1; padding: 16px 12px }
+    .sb-ul { list-style: none; display: flex; flex-direction: column; gap: 4px }
+    .nitem { position: relative; display: flex; align-items: center; gap: 12px; border-radius: 8px; padding: 8px 12px;
+      font-size: 14px; font-weight: 600; color: var(--muted); text-decoration: none }
+    .nitem svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; flex: none }
+    .nitem.on { background: var(--brandsoft); color: var(--ink) }
+    .nitem.on svg { color: var(--brand) }
+    .nitem.on::before { content: ""; position: absolute; left: -12px; top: 50%; transform: translateY(-50%);
+      height: 20px; width: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; background: var(--brand) }
+    .sb-foot { border-top: 1px solid var(--line); padding: 12px }
+    .maincol { display: flex; min-width: 0; flex: 1; flex-direction: column }
+    .tb { display: flex; height: 64px; flex: none; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--line); background: var(--surface); padding: 0 24px }
+    .tb-t { font-size: 16px; font-weight: 600; letter-spacing: -.025em; color: var(--ink); line-height: 1.15 }
+    .tb-d { font-size: 12px; color: var(--muted); line-height: 1.15; margin-top: 1px }
+    .tb-r { display: flex; align-items: center; gap: 8px }
+    .iconbtn { display: flex; height: 36px; width: 36px; align-items: center; justify-content: center; border-radius: 8px;
+      border: 1px solid var(--line); background: var(--surface); color: var(--body); font: inherit; cursor: pointer; padding: 0 }
+    .iconbtn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .tsep { margin: 0 4px; width: 1px; height: 24px; background: var(--line) }
+    .locbtn { display: inline-flex; height: 36px; align-items: center; gap: 6px; border-radius: 8px; border: 1px solid var(--line);
+      background: var(--surface); padding: 0 10px; color: var(--muted); font: inherit; cursor: pointer }
+    .locbtn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .locbtn .lc { font-size: 12px; font-weight: 600 }
+    .uchip { display: flex; align-items: center; gap: 10px; border-radius: 8px; padding: 4px 8px 4px 4px; border: 0;
+      background: transparent; font: inherit; color: inherit; cursor: pointer }
+    .uav { display: flex; height: 32px; width: 32px; align-items: center; justify-content: center; border-radius: 99px;
+      background: var(--brandsoft); font-size: 14px; font-weight: 600; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line) }
+    .uchip b { display: block; font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1.15 }
+    .uchip span { display: block; font-size: 12px; color: var(--muted); line-height: 1.15 }
+    .pg { width: 100%; max-width: 1440px; margin: 0 auto; flex: 1; padding: 24px; box-sizing: border-box }
+
+    /* ============ Button ============ */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 8px; font: inherit;
+      font-weight: 500; cursor: pointer; white-space: nowrap; border: 1px solid transparent }
+    .btn.sm { height: 32px; padding: 0 12px; font-size: 13px }
+    .btn.md { height: 36px; padding: 0 14px; font-size: 14px }
+    .btn.lg { height: 40px; padding: 0 16px; font-size: 14px }
+    .btn.primary { background: var(--ink); color: var(--surface) }
+    .btn.brand { background: var(--brand); color: var(--onbrand) }
+    .btn.secondary { border-color: var(--line); background: var(--surface); color: var(--ink) }
+    .btn.ghost { color: var(--muted); background: transparent }
+    .btn.danger { color: var(--absentink); background: transparent }
+    .btn.danger.solid { font-weight: 600 }
+    .btn.block { width: 100% }
+    .btn[disabled] { opacity: .5; cursor: not-allowed }
+    .btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .btn.sm svg { width: 14px; height: 14px }
+
+    /* ============ Section card + Tabs ============ */
+    .card { border-radius: 8px; border: 1px solid var(--line); background: var(--surface);
+      box-shadow: 0 1px 2px rgba(15,23,42,.04),0 1px 3px rgba(15,23,42,.04) }
+    .card-h { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+      border-bottom: 1px solid var(--line); padding: 12px 16px 0 }
+    .tabs { display: flex; gap: 4px; align-self: stretch; margin-bottom: -1px }
+    .tab { display: flex; align-items: center; gap: 8px; white-space: nowrap; border-bottom: 2px solid transparent;
+      padding: 6px 12px 12px; font: inherit; font-size: 14px; color: var(--muted); background: transparent; cursor: pointer }
+    .tab.on { border-bottom-color: var(--ink); font-weight: 500; color: var(--ink) }
+    .tab .tbc { border-radius: 4px; background: var(--brandsoft); padding: 0 6px; font-size: 12px; font-weight: 600;
+      font-variant-numeric: tabular-nums; color: var(--muted) }
+    .tab .tbc.alert { background: var(--absentsoft); color: var(--absentink) }
+    .card-h .hbtn { margin-bottom: 10px }
+
+    /* ============ Devices page grid ============ */
+    .dvgrid { display: grid; grid-template-columns: minmax(0,1fr) 380px; gap: 20px; align-items: start }
+    .dvbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 16px }
+    .dvbar .search { display: flex; height: 40px; width: 256px; align-items: center; border-radius: 8px; border: 1px solid var(--line); background: var(--field) }
+    .dvbar .search .lead { display: flex; flex: none; align-items: center; padding-left: 12px; color: var(--muted) }
+    .dvbar .search .lead svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .dvbar .search input { flex: 1; min-width: 0; border: 0; background: transparent; font: inherit; font-size: 14px; color: var(--ink); padding: 0 12px; outline: none }
+    .dvbar .search input::placeholder { color: var(--subtle) }
+
+    /* BranchSwitcher (closed) */
+    .bsw { position: relative; display: inline-flex; height: 36px; max-width: 240px; align-items: center; gap: 8px;
+      border-radius: 8px; border: 1px solid var(--line); background: var(--surface); padding: 0 12px; font-size: 14px; font-weight: 500; color: var(--ink) }
+    .bsw .bic { display: flex; flex: none; align-items: center; color: var(--muted) }
+    .bsw .bic svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .bsw .bl { overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+    .bsw .bbdg { border-radius: 4px; background: var(--brandsoft); padding: 0 6px; font-size: 12px; font-weight: 600;
+      font-variant-numeric: tabular-nums; color: var(--muted) }
+    .bsw .bcv { width: 14px; height: 14px; flex: none; stroke: var(--subtle); fill: none; stroke-width: 2 }
+
+    /* BranchSwitcher (open) */
+    .bsw-pop { position: absolute; left: 0; top: 44px; z-index: 40; width: 300px; overflow: hidden;
+      border-radius: 8px; border: 1px solid var(--line); background: var(--surface);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1) }
+    .bsw-pop .sq { position: relative; border-bottom: 1px solid var(--line) }
+    .bsw-pop .sq svg.sic { position: absolute; left: 12px; top: 12px; width: 16px; height: 16px; stroke: var(--subtle); fill: none; stroke-width: 2 }
+    .bsw-pop .sq input { width: 100%; height: 40px; background: transparent; border: 0; padding: 0 12px 0 36px;
+      font: inherit; font-size: 14px; color: var(--ink); outline: none }
+    .bsw-pop .sq input::placeholder { color: var(--subtle) }
+    .bsw-pop .list { padding: 6px }
+    .bgrp { padding: 8px 8px 4px; font-size: 11px; font-weight: 600; color: var(--subtle) }
+    .bsep { margin: 6px 0; height: 1px; background: var(--line) }
+    .brow { display: flex; width: 100%; align-items: center; gap: 10px; border-radius: 6px; border: 0; background: transparent;
+      padding: 6px 8px; text-align: left; font: inherit; cursor: pointer }
+    .brow.sel { background: var(--canvas) }
+    .brow .bck { display: flex; height: 16px; width: 16px; flex: none; align-items: center; justify-content: center }
+    .brow .bck svg { width: 16px; height: 16px; stroke: var(--ink); fill: none; stroke-width: 2.5 }
+    .brow .bbody { min-width: 0; flex: 1 }
+    .brow .bname { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; color: var(--body) }
+    .brow.sel .bname { font-weight: 600; color: var(--ink) }
+    .brow .bsub { display: block; font-size: 11px; color: var(--subtle) }
+    .brow .bcnt { font-size: 12px; font-variant-numeric: tabular-nums; color: var(--muted) }
+    .brow .bcnt.zero { color: var(--subtle) }
+    .bfoot { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line);
+      background: var(--surface2); padding: 8px 12px; font-size: 11px; color: var(--muted) }
+
+    /* Device row */
+    .drow { display: flex; width: 100%; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); padding: 12px 16px;
+      text-align: left; cursor: pointer; background: var(--surface); font: inherit }
+    .drow:last-child { border-bottom: 0 }
+    .drow.sel { background: var(--brandsoft) }
+    .drow .dic { display: flex; height: 36px; width: 36px; flex: none; align-items: center; justify-content: center;
+      border-radius: 8px; background: var(--surface2); color: var(--muted) }
+    .drow .dic svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .drow .dinfo { min-width: 0; flex: 1 }
+    .drow .dnm { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; font-weight: 600; color: var(--ink) }
+    .drow .dsub { display: block; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; color: var(--muted) }
+    .drow .dmeta { flex: none; text-align: right; font-size: 12px; font-variant-numeric: tabular-nums; color: var(--muted) }
+    .drow .dmeta .ago { display: block; margin-top: 2px; color: var(--subtle) }
+
+    /* Status pill */
+    .pill { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; border-radius: 6px; padding: 2px 8px; font-size: 12px; font-weight: 600 }
+    .pill .pd { height: 6px; width: 6px; flex: none; border-radius: 99px }
+    .pill .pic { width: 12px; height: 12px; flex: none; stroke: currentColor; fill: none; stroke-width: 2 }
+    .pill.on { background: var(--presentsoft); color: var(--presentink) } .pill.on .pd { background: var(--present) }
+    .pill.off { background: var(--canvas); color: var(--muted) } .pill.off .pd { background: var(--subtle) }
+    .pill.pend { background: var(--latesoft); color: var(--lateink) } .pill.pend .pd { background: var(--late) }
+    .pill.err { background: var(--absentsoft); color: var(--absentink) }
+
+    /* Device detail panel */
+    .dvd { border-radius: 8px; border: 1px solid var(--line); background: var(--surface); padding: 20px;
+      box-shadow: 0 1px 2px rgba(15,23,42,.04),0 1px 3px rgba(15,23,42,.04) }
+    .dvd-h { display: flex; align-items: flex-start; gap: 12px }
+    .dvd-h .dvic { display: flex; height: 44px; width: 44px; flex: none; align-items: center; justify-content: center; border-radius: 8px }
+    .dvd-h .dvic svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .dvic.on { background: var(--presentsoft); color: var(--presentink) }
+    .dvic.off { background: var(--canvas); color: var(--muted) }
+    .dvic.pend { background: var(--latesoft); color: var(--lateink) }
+    .dvic.err { background: var(--absentsoft); color: var(--absentink) }
+    .dvd-h .dvt { min-width: 0; flex: 1 }
+    .dvd-h .dvt h2 { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 15px; font-weight: 600; letter-spacing: -.025em; color: var(--ink) }
+    .dvd-h .dvt p { margin-top: 2px; font-size: 13px; color: var(--muted) }
+    .dvd-tabs { margin-top: 12px; border-bottom: 1px solid var(--line) }
+    .dvnote { margin-top: 16px; border-radius: 8px; background: var(--latesoft); padding: 12px 14px }
+    .dvnote .nt { font-size: 13px; font-weight: 600; color: var(--lateink) }
+    .dvnote .nd { margin-top: 4px; font-size: 12px; line-height: 1.625; color: var(--body) }
+    .dvl { margin-top: 8px }
+    .dvl > * + * { border-top: 1px solid var(--line) }
+    .dvr { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 8px 0; font-size: 13px }
+    .dvr dt { flex: none; color: var(--muted) }
+    .dvr dd { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: right; font-weight: 500; color: var(--ink) }
+    .dvr dd.push-on { color: var(--presentink) }
+    .dvr dd.push-off { color: var(--muted) }
+    .dvact { margin-top: 16px }
+    .dvact .at { font-size: 12px; font-weight: 600; color: var(--ink) }
+    .dvact ul { list-style: none; margin-top: 6px }
+    .dvact li + li { border-top: 1px solid var(--line) }
+    .dvact .al { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 6px 0; font-size: 13px }
+    .dvact .an { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--body) }
+    .dvact .am { flex: none; font-variant-numeric: tabular-nums; color: var(--muted) }
+    .dvact .dir-in { font-weight: 500; color: var(--presentink) }
+    .dvact .dir-out { font-weight: 500; color: var(--lateink) }
+    .dvbtns { margin-top: 16px; display: flex; align-items: center; gap: 8px }
+    .dv-empty { display: flex; flex-direction: column; align-items: center; gap: 8px; border-radius: 8px; border: 1px solid var(--line);
+      background: var(--surface); padding: 40px; text-align: center; box-shadow: 0 1px 2px rgba(15,23,42,.04),0 1px 3px rgba(15,23,42,.04) }
+    .dv-empty h2 { font-size: 14px; font-weight: 600; color: var(--ink) }
+    .dv-empty p { font-size: 13px; color: var(--muted) }
+
+    /* Settings panel */
+    .sp { display: flex; flex-direction: column; gap: 16px; padding-top: 16px }
+    .spg { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .025em; color: var(--subtle) }
+    .spg.mt { padding-top: 4px }
+    .sl-wrap { display: flex; align-items: center; gap: 12px }
+    .sl { position: relative; flex: 1; height: 6px; border-radius: 99px; background: var(--line) }
+    .sl .fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 99px; background: var(--brand) }
+    .sl .thb { position: absolute; top: 50%; height: 16px; width: 16px; border-radius: 99px; background: var(--surface);
+      box-shadow: 0 0 0 1px var(--line),0 1px 2px rgba(0,0,0,.2); transform: translate(-50%,-50%) }
+    .sl-val { width: 80px; flex: none; text-align: right; font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--ink) }
+    .spnote { border-radius: 8px; background: var(--latesoft); padding: 10px 14px; font-size: 12px; line-height: 1.625; color: var(--body) }
+
+    /* ============ Form primitives ============ */
+    .fl { margin-bottom: 6px; display: flex; align-items: baseline; justify-content: space-between; gap: 8px }
+    .fl label { font-size: 13px; font-weight: 500; color: var(--body) }
+    .fl label .req { margin-left: 2px; color: var(--absentink) }
+    .fl .opt { font-size: 12px; color: var(--subtle) }
+    .fhint { margin-top: 6px; font-size: 12px; color: var(--subtle) }
+    .ferr { margin-top: 6px; display: flex; align-items: flex-start; gap: 4px; font-size: 12px; color: var(--absentink) }
+    .ferr svg { margin-top: 1px; width: 14px; height: 14px; flex: none; stroke: currentColor; fill: none; stroke-width: 2 }
+    .ti { display: flex; height: 40px; align-items: center; border-radius: 8px; border: 1px solid var(--line); background: var(--field) }
+    .ti.err { border-color: rgba(208,88,79,.6) }
+    .ti .lead { display: flex; flex: none; align-items: center; padding-left: 12px; color: var(--muted) }
+    .ti .lead svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .ti input { flex: 1; min-width: 0; height: 100%; border: 0; background: transparent; font: inherit; font-size: 14px;
+      color: var(--ink); padding: 0 12px; outline: none }
+    .ti input::placeholder { color: var(--subtle) }
+    .ti input.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace }
+    .sm-btn { display: flex; height: 40px; width: 100%; align-items: center; gap: 8px; border-radius: 8px;
+      border: 1px solid var(--line); background: var(--field); padding: 0 12px; font: inherit; font-size: 14px; cursor: pointer }
+    .sm-btn .sv { min-width: 0; flex: 1; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink) }
+    .sm-btn .sv.ph { color: var(--subtle) }
+    .sm-btn .chev { width: 16px; height: 16px; flex: none; stroke: var(--subtle); fill: none; stroke-width: 2 }
+    .segm { display: inline-flex; height: 40px; align-items: center; border-radius: 8px; border: 1px solid var(--line); background: var(--field); padding: 4px }
+    .segm button { border: 0; background: transparent; font: inherit; cursor: pointer; border-radius: 6px; padding: 0 12px;
+      height: 100%; font-size: 13px; font-weight: 500; color: var(--muted); white-space: nowrap }
+    .segm button.on { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(15,23,42,.04),0 1px 3px rgba(15,23,42,.04);
+      outline: 1px solid var(--line) }
+    .tg { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px }
+    .tg .tgl { min-width: 0 }
+    .tg .tgl .tl { display: block; font-size: 14px; font-weight: 500; color: var(--ink) }
+    .tg .tgl .td { display: block; margin-top: 2px; font-size: 12px; color: var(--muted) }
+    .tg .tgb { margin-top: 2px; display: inline-flex; height: 20px; width: 36px; flex: none; align-items: center;
+      border-radius: 99px; border: 0; cursor: pointer; padding: 0 }
+    .tg .tgb.on { background: var(--ink) }
+    .tg .tgb.off { background: var(--line) }
+    .tg .tknob { display: inline-block; height: 16px; width: 16px; margin-left: 2px; border-radius: 99px;
+      background: var(--surface); box-shadow: 0 1px 2px rgba(15,23,42,.2) }
+    .tg .tgb.on .tknob { margin-left: 18px }
+    .oc { display: flex; width: 100%; align-items: flex-start; gap: 12px; border-radius: 8px; border: 1px solid var(--line);
+      padding: 14px; text-align: left; font: inherit; cursor: pointer; background: var(--surface) }
+    .oc.sel { background: var(--surface2) }
+    .oc .oci { display: flex; height: 32px; width: 32px; flex: none; align-items: center; justify-content: center;
+      border-radius: 6px; background: var(--brandsoft); color: var(--muted) }
+    .oc.sel .oci { color: var(--ink) }
+    .oc .oci svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .oc .ocb { min-width: 0; flex: 1 }
+    .oc .oct { display: block; font-size: 14px; font-weight: 600; color: var(--ink) }
+    .oc .ocd { display: block; margin-top: 2px; font-size: 12px; line-height: 1.375; color: var(--muted) }
+    .ck { margin-top: 2px; display: flex; height: 18px; width: 18px; flex: none; align-items: center; justify-content: center;
+      border-radius: 99px; border: 1px solid var(--line); background: var(--surface) }
+    .ck.on { border-color: var(--ink); background: var(--ink); color: var(--surface) }
+    .ck svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 3 }
+    .oc3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px }
+
+    /* ============ Modal (AddDeviceWizard — markazda, scrim bilan) ============ */
+    /* Real kod: portal `fixed inset-0 z-50 flex items-center justify-center p-4`,
+       scrim `absolute inset-0 bg-black/50`, panel `max-w-xl rounded-2xl border bg-surface shadow-2xl`.
+       Sahifaga HEG QANDAY filter berilmaydi — faqat ustida yarim shaffof qora scrim. */
+    .mframe { position: relative; display: flex; width: 1440px; min-height: 900px; padding: 40px 0; align-items: center; justify-content: center }
+    .mframe .pagebg { position: absolute; inset: 0; overflow: hidden }
+    .mframe .pagebg .app { height: 100% }
+    .mscrim { position: absolute; inset: 0; z-index: 40; background: rgba(0,0,0,.5) }
+    .modal { position: relative; z-index: 50; width: 576px; display: flex; flex-direction: column;
+      border-radius: 16px; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 25px 50px -12px rgba(0,0,0,.25) }
+    .wz-h { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); padding: 16px 24px }
+    .wz-h h2 { font-size: 18px; font-weight: 600; letter-spacing: -.025em; color: var(--ink) }
+    .wz-h .wz-sub { margin-top: 2px; font-size: 13px; color: var(--muted) }
+    .wz-x { display: flex; height: 32px; width: 32px; flex: none; align-items: center; justify-content: center;
+      border-radius: 6px; border: 0; background: transparent; color: var(--muted); cursor: pointer; padding: 0 }
+    .wz-x svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .wz-steps { display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--line); padding: 12px 24px }
+    .wz-chip { display: flex; align-items: center; gap: 6px; border-radius: 99px; padding: 4px 10px; font-size: 12px; font-weight: 600 }
+    .wz-chip.act { background: var(--brandsoft); color: var(--ink) }
+    .wz-chip.done { color: var(--presentink) }
+    .wz-chip.todo { color: var(--subtle) }
+    .wz-chip svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .wz-sep { height: 1px; width: 24px; background: var(--line) }
+    .wz-b { padding: 20px 24px; display: flex; flex-direction: column; gap: 16px }
+    .wz-f { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding: 16px 24px }
+    .wz-auto { border-radius: 8px; border: 1px solid var(--line); background: var(--surface2); padding: 16px }
+    .wz-auto .at { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--ink) }
+    .wz-auto .at svg { width: 16px; height: 16px; stroke: var(--brand); fill: none; stroke-width: 2 }
+    .wz-auto ol { margin-top: 8px; padding-left: 16px; list-style: decimal; display: flex; flex-direction: column; gap: 6px;
+      font-size: 13px; line-height: 1.625; color: var(--body) }
+    .wz-title { font-size: 14px; font-weight: 600; color: var(--ink) }
+    .wz-desc { margin-top: 2px; font-size: 13px; line-height: 1.625; color: var(--muted) }
+
+    /* ============ Layout fixes (html-to-figma render) ============ */
+    /* Detail cards must never let inner controls spill onto neighbours */
+    .dvd { overflow: hidden }
+    /* Action-button row wraps instead of overflowing the 380px card */
+    .dvbtns { flex-wrap: wrap }
+    /* 4-option recognition-mode segmented fits inside the 380px settings panel */
+    .sp .segm { display: flex; width: 100% }
+    .sp .segm button { flex: 1 1 0; min-width: 0; padding: 0 4px; font-size: 12px; text-align: center; justify-content: center }
+  
+    /* ============ Sozlamalar (Settings) ============ */
+    :root { --outsoft: #eaf1fc; --outink: #345ea8; }
+    .stwrap { max-width: 768px }
+    .stcard { border-radius: 12px; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 1px 2px rgba(15,23,42,.04),0 1px 3px rgba(15,23,42,.04) }
+    .sthead { border-bottom: 1px solid var(--line); padding: 14px 16px }
+    .sthead h2 { font-size: 14px; font-weight: 600; letter-spacing: -.025em; color: var(--ink) }
+    .sthead p { margin-top: 2px; font-size: 13px; color: var(--muted) }
+    .stbody { padding: 16px; display: flex; flex-direction: column; gap: 20px }
+    .botbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; border-radius: 8px; border: 1px solid var(--line); background: rgba(246,246,247,.6); padding: 12px 16px }
+    .botid { display: flex; align-items: center; gap: 12px; min-width: 0 }
+    .botid .ic { display: flex; height: 36px; width: 36px; flex: none; align-items: center; justify-content: center; border-radius: 8px; background: var(--brandsoft); color: var(--ink) }
+    .botid .ic svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .botid .bn { font-size: 14px; font-weight: 600; color: var(--ink) }
+    .botid .bs { font-size: 12px; color: var(--muted) }
+    .botid .bs .ok { font-weight: 500; color: var(--presentink) }
+    .botid .bs .no { color: var(--absentink) }
+    .bottgl { flex: 1 1 224px; min-width: 192px }
+    .how { border-radius: 8px; border: 1px solid var(--line); background: rgba(246,246,247,.6); padding: 16px }
+    .how .ht { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; font-size: 12px; font-weight: 600; color: var(--ink) }
+    .how .ht svg { width: 16px; height: 16px; stroke: var(--brand); fill: none; stroke-width: 2 }
+    .how ol { margin: 0; padding-left: 18px; list-style: decimal; display: flex; flex-direction: column; gap: 6px; font-size: 13px; line-height: 1.625; color: var(--body) }
+    .topics-h { font-size: 14px; font-weight: 600; color: var(--ink) }
+    .topics-d { margin-top: 2px; font-size: 12px; color: var(--muted) }
+    .toplist { margin-top: 12px; display: flex; flex-direction: column; gap: 10px }
+    .toprow { border-radius: 8px; border: 1px solid var(--line); padding: 12px 14px }
+    .toprow.live { background: var(--surface) }
+    .toprow.idle { background: rgba(246,246,247,.4) }
+    .toprow-in { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 12px }
+    .rbadge { flex: none; border-radius: 4px; padding: 2px 8px; font-size: 11px; font-weight: 600 }
+    .rbadge.in { background: var(--presentsoft); color: var(--presentink) }
+    .rbadge.out { background: var(--outsoft); color: var(--outink) }
+    .rbadge.unknown { background: var(--absentsoft); color: var(--absentink) }
+    .rbadge.system { background: var(--leavesoft); color: var(--leaveink) }
+    .ti.grow { flex: 1 1 160px; min-width: 144px }
+    .ti.w28 { width: 112px; flex: none }
+    .ti input.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace }
+    .ti.err { border-color: rgba(208,88,79,.6) }
+    .sw { position: relative; margin-left: auto; display: inline-flex; height: 20px; width: 36px; flex: none; align-items: center; border-radius: 9999px; background: var(--line) }
+    .sw.on { background: var(--ink) }
+    .sw i { display: inline-block; height: 16px; width: 16px; border-radius: 9999px; background: var(--surface); box-shadow: 0 1px 2px rgba(0,0,0,.2); transform: translateX(2px) }
+    .sw.on i { transform: translateX(18px) }
+    .topnote { margin-top: 6px; font-size: 12px; color: var(--subtle) }
+    .toperr { margin-top: 6px; font-size: 12px; font-weight: 500; color: var(--absentink) }
+    .tgl { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px }
+    .tgl .tt { min-width: 0 }
+    .tgl .tt .l { display: block; font-size: 14px; font-weight: 500; color: var(--ink) }
+    .tgl .tt .d { margin-top: 2px; display: block; font-size: 12px; color: var(--muted) }
+    .stfoot { display: flex; align-items: center; justify-content: flex-end; gap: 12px; border-top: 1px solid var(--line); padding: 14px 16px }
+</style>
+</head>
+
+<body style="display:block;gap:0"><div class="board-label">10b · Sozlamalar — master o’chiq (barcha mavzular bloklangan)</div><div class="board">
+    <div class="app"><aside class="sb">
+        <div class="sb-head">
+          <div class="sb-logo"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2"/><path d="M12 9v2M9h.01M15 9h.01M9.5 14a3.5 3.5 0 0 0 5 0"/></svg></div>
+          <div><div class="sb-t1">ATT Davomat</div><div class="sb-t2">Boshqaruv paneli</div></div>
+        </div>
+        <nav class="sb-nav"><ul class="sb-ul">
+          <li><a class="nitem"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/></svg>Monitoring</a></li>
+          <li><a class="nitem"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>Xodimlar</a></li>
+          <li><a class="nitem"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>Ish haqi</a></li>
+          <li><a class="nitem"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></svg>Filiallar</a></li>
+          <li><a class="nitem"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 3H5a2 2 0 0 0-2 2v14"/><path d="M21 6v13a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2Z"/><path d="M10 12h4"/></svg>Qurilmalar</a></li>
+          <li><a class="nitem"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C16.51 3.81 19 5 21 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>Adminlar</a></li>
+          <li><a class="nitem on"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>Sozlamalar</a></li>
+        </ul></nav>
+        <div class="sb-foot"><a class="nitem"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg>Chiqish</a></div>
+      </aside><div class="maincol"><header class="tb">
+          <div><div class="tb-t">Sozlamalar</div><div class="tb-d">Chorshanba, 28-oktabr 2026</div></div>
+          <div class="tb-r">
+            <button class="locbtn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg><span class="lc">O'zbekcha</span></button>
+            <button class="iconbtn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+            <span class="tsep"></span>
+            <button class="uchip"><span class="uav">R</span><span><b>Rabola Admin</b><span>Administrator</span></span><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:16px;height:16px;stroke:var(--muted);fill:none;stroke-width:2"><path d="m6 9 6 6 6-6"/></svg></button>
+          </div>
+        </header><div class="pg"><div class="stwrap"><section class="stcard" aria-label="Telegram sozlamalari"><div class="sthead"><h2>Telegram xabarnomalari</h2><p>Bot kompaniya guruhida admin — har hodisa to’g’ri mavzuga boradi</p></div><div class="stbody"><div class="botbar" style="gap:16px"><div class="botid" style="gap:12px"><span class="ic"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></span><div><p class="bn">@att_davomat_bot</p><p class="bs"><span class="ok">Ulangan</span> · Oxirgi tekshiruv: 3 daq oldin</p></div></div><div class="bottgl"><div class="tgl"><span class="tt"><span class="l">Xabarnomalar</span><span class="d">O’chirilsa, hech qaysi mavzuga xabar ketmaydi</span></span><span class="sw" role="switch" aria-checked="false"><i></i></span></div></div></div><div class="how"><p class="ht"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6.3 6.3l2.4 2.4M15.3 15.3l2.4 2.4M17.7 6.3l-2.4 2.4M8.7 15.7l-2.4 2.4"/></svg>Qanday ishlaydi?</p><ol><li>Kompaniya o’z Telegram guruhida “Mavzular (Topics)” rejimini yoqadi</li><li>Bizning botni guruhga admin qilib qo’shadi</li><li>Siz faqat guruh ID va mavzu kodlarini shu yerga yozasiz — qolganini tizim o’zi topadi</li></ol></div><div><div class="fl"><label>Guruh ID raqami<span class="req">*</span></label></div><div class="ti"><input class="mono" value="-1001234567890" placeholder="Masalan, -1001234567890" /></div></div><div><p class="topics-h">Mavzular</p><p class="topics-d">Hodisa turi qaysi mavzuga borishini shu jadval hal qiladi</p><div class="toplist"><div class="toprow idle"><div class="toprow-in" style="gap:16px 12px"><span class="rbadge in">Xodim keldi</span><div class="ti grow"><input class="" value="Keldi" placeholder="" /></div><div class="ti w28"><input class="mono" value="41" placeholder="Masalan, 41" /></div><span class="sw " role="switch" aria-checked="false"><i></i></span></div></div><div class="toprow idle"><div class="toprow-in" style="gap:16px 12px"><span class="rbadge out">Xodim ketdi</span><div class="ti grow"><input class="" value="Ketdi" placeholder="" /></div><div class="ti w28"><input class="mono" value="42" placeholder="Masalan, 41" /></div><span class="sw " role="switch" aria-checked="false"><i></i></span></div></div><div class="toprow idle"><div class="toprow-in" style="gap:16px 12px"><span class="rbadge unknown">Begona odam</span><div class="ti grow"><input class="" value="Begona odamlar" placeholder="" /></div><div class="ti w28"><input class="mono" value="43" placeholder="Masalan, 41" /></div><span class="sw " role="switch" aria-checked="false"><i></i></span></div></div><div class="toprow idle"><div class="toprow-in" style="gap:16px 12px"><span class="rbadge system">Tizim xabarlari</span><div class="ti grow"><input class="" value="Tizim xabarlari" placeholder="" /></div><div class="ti w28"><input class="mono" placeholder="Masalan, 41" /></div><span class="sw " role="switch" aria-checked="false"><i></i></span></div><p class="topnote">O’chirilgan mavzuga xabarlar guruhning o’ziga, mavzusiz boradi</p></div></div></div></div><div class="stfoot"><button class="btn ghost md" disabled><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Sinov yuborish</button><button class="btn brand md">Saqlash</button></div></section></div></div></div></div>
+  </div>
+</body></html>

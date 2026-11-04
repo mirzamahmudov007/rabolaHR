@@ -1,0 +1,2208 @@
+<!doctype html>
+<html lang="uz">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATT — Figma design boards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ============ ATT dizayn tizimi — globals.css tokenlari bilan bir xil ============ */
+    :root {
+      --canvas: #f6f6f7;
+      --surface: #ffffff;
+      --surface2: #fafafa;
+      --field: #fafafa;
+      --ink: #18181b;
+      --body: #3f3f46;
+      --muted: #71717a;
+      --subtle: #a1a1aa;
+      --line: #eaeaed;
+      --brand: #18181b;
+      --brandhover: #2d2d32;
+      --brandsoft: #f1f1f3;
+      --onbrand: #ffffff;
+      --present: #3f9d6f;
+      --presentsoft: #eaf5ef;
+      --presentink: #247852;
+      --late: #cc8f33;
+      --latesoft: #faf2e4;
+      --lateink: #966218;
+      --absent: #d0584f;
+      --absentsoft: #fbebe9;
+      --absentink: #ac3a32;
+      --leave: #7d70c8;
+      --leavesoft: #f0eeea;
+      --leaveink: #6054b0;
+      --regsoft: #eaf1fc;
+      --regink: #345ea8;
+      --shiftsoft: #e5f4f3;
+      --shiftink: #1c736e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      background: #e4e4e7;
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      align-items: flex-start
+    }
+
+    /* ============ Board ============ */
+    .board {
+      width: 1440px;
+      background: var(--canvas);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, .12);
+      position: relative
+    }
+
+    .board-label {
+      font-size: 20px;
+      font-weight: 600;
+      color: #52525b;
+      margin-bottom: 16px
+    }
+
+    /* ============ App shell ============ */
+    .shell {
+      display: flex;
+      min-height: 900px
+    }
+
+    .sidebar {
+      width: 232px;
+      flex: none;
+      background: var(--surface);
+      border-right: 1px solid var(--line);
+      padding: 20px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 10px 20px
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--brand);
+      color: var(--onbrand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px
+    }
+
+    .logo-name {
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: -.2px
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      color: var(--muted)
+    }
+
+    .nav {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--subtle);
+      padding: 14px 10px 6px;
+      text-transform: uppercase;
+      letter-spacing: .4px
+    }
+
+    .nitem {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--body)
+    }
+
+    .nitem svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--muted);
+      fill: none;
+      stroke-width: 1.7
+    }
+
+    .nitem.on {
+      background: var(--brandsoft);
+      color: var(--ink);
+      font-weight: 600
+    }
+
+    .nitem.on svg {
+      stroke: var(--ink)
+    }
+
+    .nitem.on::before {
+      content: "";
+      position: absolute;
+      left: -12px;
+      top: 8px;
+      bottom: 8px;
+      width: 3px;
+      border-radius: 0 3px 3px 0;
+      background: var(--brand)
+    }
+
+    .nbadge {
+      margin-left: auto;
+      font-size: 10.5px;
+      font-weight: 600;
+      background: var(--absentsoft);
+      color: var(--absentink);
+      padding: 2px 7px;
+      border-radius: 99px
+    }
+
+    .sofer {
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .sofer .avatar {
+      width: 30px;
+      height: 30px;
+      font-size: 11px
+    }
+
+    .sofer b {
+      font-size: 12.5px;
+      display: block
+    }
+
+    .sofer span {
+      font-size: 11px;
+      color: var(--muted)
+    }
+
+    .main {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column
+    }
+
+    .topbar {
+      height: 60px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 24px
+    }
+
+    .topbar h1 {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -.2px
+    }
+
+    .topbar .mline {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px
+    }
+
+    /* ============ UI atoms ============ */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 1px 3px rgba(15, 23, 42, .04)
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      cursor: pointer
+    }
+
+    .btn svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8
+    }
+
+    .btn.dark {
+      background: var(--brand);
+      color: var(--onbrand);
+      border-color: var(--brand)
+    }
+
+    .btn.ghost {
+      background: transparent;
+      border-color: transparent;
+      color: var(--muted)
+    }
+
+    .btn.sm {
+      padding: 5px 10px;
+      font-size: 12px;
+      border-radius: 6px
+    }
+
+    .input {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--field);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 13px;
+      color: var(--subtle)
+    }
+
+    .input svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--subtle);
+      fill: none;
+      stroke-width: 1.8;
+      flex: none
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--body);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      padding: 6px 12px
+    }
+
+    .chip.on {
+      background: var(--brand);
+      color: var(--onbrand);
+      border-color: var(--brand)
+    }
+
+    .chip small {
+      font-weight: 600;
+      opacity: .6
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 11.5px;
+      font-weight: 600;
+      border-radius: 99px;
+      padding: 3px 9px
+    }
+
+    .badge.p {
+      background: var(--presentsoft);
+      color: var(--presentink)
+    }
+
+    .badge.l {
+      background: var(--latesoft);
+      color: var(--lateink)
+    }
+
+    .badge.a {
+      background: var(--absentsoft);
+      color: var(--absentink)
+    }
+
+    .badge.t {
+      background: var(--leavesoft);
+      color: var(--leaveink)
+    }
+
+    .badge.n {
+      background: var(--brandsoft);
+      color: var(--muted)
+    }
+
+    .badge.r {
+      background: var(--regsoft);
+      color: var(--regink)
+    }
+
+    .badge.s {
+      background: var(--shiftsoft);
+      color: var(--shiftink)
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 99px;
+      display: inline-block
+    }
+
+    .dot.g {
+      background: var(--present)
+    }
+
+    .dot.r {
+      background: var(--absent)
+    }
+
+    .dot.y {
+      background: var(--late)
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 99px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #fff;
+      flex: none
+    }
+
+    .a1 {
+      background: #5b6abf
+    }
+
+    .a2 {
+      background: #4c9a7a
+    }
+
+    .a3 {
+      background: #b0685a
+    }
+
+    .a4 {
+      background: #8a6fb8
+    }
+
+    .a5 {
+      background: #3f8fa8
+    }
+
+    .a6 {
+      background: #a8843f
+    }
+
+    .thumb {
+      width: 44px;
+      height: 44px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #e4e4e7, #f4f4f5);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none
+    }
+
+    .thumb svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--subtle);
+      fill: none;
+      stroke-width: 1.6
+    }
+
+    /* ============ Table ============ */
+    table {
+      width: 100%;
+      border-collapse: collapse
+    }
+
+    th {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      text-align: left;
+      padding: 11px 16px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface2)
+    }
+
+    td {
+      padding: 12px 16px;
+      font-size: 13px;
+      color: var(--body);
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle
+    }
+
+    tr:last-child td {
+      border-bottom: none
+    }
+
+    td b {
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 13px;
+      display: block
+    }
+
+    td small {
+      color: var(--muted);
+      font-size: 11.5px
+    }
+
+    .num {
+      font-variant-numeric: tabular-nums
+    }
+
+    /* ============ Stat cards ============ */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px
+    }
+
+    .stat {
+      padding: 18px 20px
+    }
+
+    .stat .k {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted)
+    }
+
+    .stat .v {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -.5px;
+      margin-top: 6px
+    }
+
+    .stat .d {
+      font-size: 11.5px;
+      margin-top: 6px;
+      color: var(--muted)
+    }
+
+    .stat .d b {
+      font-weight: 600
+    }
+
+    /* ============ Tabs row ============ */
+    .tabs {
+      display: flex;
+      gap: 2px;
+      border-bottom: 1px solid var(--line);
+      padding: 0 16px
+    }
+
+    .tab {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 12px 14px;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px
+    }
+
+    .tab.on {
+      color: var(--ink);
+      font-weight: 600;
+      border-bottom-color: var(--brand)
+    }
+
+    .tab small {
+      font-weight: 600;
+      color: var(--subtle);
+      margin-left: 5px
+    }
+
+    /* Live toggle */
+    .live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      background: var(--presentsoft);
+      color: var(--presentink);
+      border-radius: 99px;
+      padding: 6px 12px
+    }
+
+    .live .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: var(--present)
+    }
+
+    /* Modal */
+    .modal {
+      width: 520px;
+      padding: 24px
+    }
+
+    .modal h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px
+    }
+
+    .modal p.sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px
+    }
+
+    .field {
+      margin-bottom: 14px
+    }
+
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--body);
+      margin-bottom: 6px
+    }
+
+    .field .box {
+      background: var(--field);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--subtle)
+    }
+
+    .field .box.val {
+      color: var(--ink)
+    }
+
+    .drop {
+      border: 1.5px dashed var(--line);
+      border-radius: 10px;
+      padding: 26px;
+      text-align: center;
+      background: var(--field)
+    }
+
+    .drop b {
+      font-size: 13px;
+      display: block;
+      margin-top: 8px
+    }
+
+    .drop span {
+      font-size: 11.5px;
+      color: var(--muted)
+    }
+
+    .rowbtns {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 22px
+    }
+
+    /* Permission matrix */
+    .pm td:nth-child(n+2),
+    .pm th:nth-child(n+2) {
+      text-align: center
+    }
+
+    .check {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .check.on {
+      background: var(--brand)
+    }
+
+    .check.on svg {
+      stroke: #fff;
+      width: 10px;
+      height: 10px;
+      stroke-width: 3;
+      fill: none
+    }
+
+    .check.off {
+      border: 1.5px solid var(--line);
+      background: var(--surface)
+    }
+
+    /* Progress bar (payroll) */
+    .bar {
+      height: 6px;
+      border-radius: 99px;
+      background: var(--brandsoft);
+      overflow: hidden
+    }
+
+    .bar i {
+      display: block;
+      height: 100%;
+      background: var(--brand);
+      border-radius: 99px
+    }
+
+    /* Settings */
+    .setwrap {
+      display: flex;
+      gap: 24px
+    }
+
+    .setnav {
+      width: 200px;
+      flex: none;
+      padding: 8px
+    }
+
+    .sitem {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--body);
+      padding: 9px 12px;
+      border-radius: 8px
+    }
+
+    .sitem.on {
+      background: var(--brandsoft);
+      color: var(--ink);
+      font-weight: 600
+    }
+
+    .setform {
+      flex: 1;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px
+    }
+
+    .setform h4 {
+      font-size: 14px;
+      font-weight: 600;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .two {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px
+    }
+
+    /* Login */
+    .login {
+      height: 900px;
+      display: flex
+    }
+
+    .login-l {
+      flex: 1;
+      background: var(--brand);
+      color: #fff;
+      padding: 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between
+    }
+
+    .login-l h2 {
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: -.8px;
+      line-height: 1.2;
+      max-width: 420px
+    }
+
+    .login-l p {
+      font-size: 14px;
+      color: #a1a1aa;
+      margin-top: 16px;
+      line-height: 1.6;
+      max-width: 400px
+    }
+
+    .login-r {
+      width: 520px;
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .login-card {
+      width: 340px
+    }
+
+    .login-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -.3px
+    }
+
+    .login-card p.sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 6px 0 26px
+    }
+
+    /* ============ EXACT ATT web qonlari (koddan olingan klassar) ============ */
+    .board {
+      width: 1440px;
+      min-height: 900px
+    }
+
+    /* AppShell / Sidebar / TopBar — shared/layout/*.tsx bo'yicha */
+    .app {
+      display: flex;
+      min-height: 900px;
+      width: 100%;
+      background: var(--canvas);
+      color: var(--ink)
+    }
+
+    .sb {
+      position: sticky;
+      top: 0;
+      flex: none;
+      height: 900px;
+      width: 240px;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--line);
+      background: var(--surface)
+    }
+
+    .sb-head {
+      display: flex;
+      height: 64px;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      padding: 0 20px
+    }
+
+    .sb-logo {
+      display: flex;
+      height: 36px;
+      width: 36px;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background: var(--brand);
+      color: var(--onbrand);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, .08)
+    }
+
+    .sb-logo svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2
+    }
+
+    .sb-t1 {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.1;
+      color: var(--ink)
+    }
+
+    .sb-t2 {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.1;
+      margin-top: 2px
+    }
+
+    .sb-nav {
+      flex: 1;
+      padding: 16px 12px
+    }
+
+    .sb-ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px
+    }
+
+    .nitem {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none
+    }
+
+    .nitem svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      flex: none
+    }
+
+    .nitem.on {
+      background: var(--brandsoft);
+      color: var(--ink)
+    }
+
+    .nitem.on svg {
+      color: var(--brand)
+    }
+
+    .nitem.on::before {
+      content: "";
+      position: absolute;
+      left: -12px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 20px;
+      width: 4px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      background: var(--brand)
+    }
+
+    .sb-foot {
+      border-top: 1px solid var(--line);
+      padding: 12px
+    }
+
+    .tb {
+      display: flex;
+      height: 64px;
+      flex: none;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+      padding: 0 24px
+    }
+
+    .tb-t {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -.025em;
+      color: var(--ink);
+      line-height: 1.15
+    }
+
+    .tb-d {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.15;
+      margin-top: 1px
+    }
+
+    .tb-r {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .iconbtn {
+      display: flex;
+      height: 36px;
+      width: 36px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--body);
+      font: inherit;
+      cursor: pointer;
+      padding: 0
+    }
+
+    .iconbtn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2
+    }
+
+    .tsep {
+      margin: 0 4px;
+      width: 1px;
+      height: 24px;
+      background: var(--line)
+    }
+
+    .uchip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 8px;
+      padding: 4px 8px 4px 4px;
+      border: 0;
+      background: transparent;
+      font: inherit;
+      color: inherit;
+      cursor: pointer
+    }
+
+    .uav {
+      display: flex;
+      height: 32px;
+      width: 32px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 99px;
+      background: var(--brandsoft);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      box-shadow: inset 0 0 0 1px var(--line)
+    }
+
+    .uchip b {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15
+    }
+
+    .uchip span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.15
+    }
+
+    .maincol {
+      display: flex;
+      min-width: 0;
+      flex: 1;
+      flex-direction: column
+    }
+
+    .pg {
+      width: 100%;
+      max-width: 1392px;
+      margin: 0 auto;
+      flex: 1;
+      padding: 24px;
+      box-sizing: border-box
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 20px
+    }
+
+    /* AttendanceStats — grid-cols-5, px-5 pt-5 pb-6, 28px raqam, 3px barlar */
+    .statsbar {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 1px 3px rgba(15, 23, 42, .04)
+    }
+
+    .scell {
+      position: relative;
+      padding: 20px 20px 24px;
+      border-right: 1px solid var(--line)
+    }
+
+    .scell.last {
+      border-right: none
+    }
+
+    .slab {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted)
+    }
+
+    .sq {
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      flex: none
+    }
+
+    .sval {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: 8px
+    }
+
+    .snum {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -.025em;
+      color: var(--ink)
+    }
+
+    .spct {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--subtle)
+    }
+
+    .sbar {
+      position: absolute;
+      inset: 0 0 0 0;
+      top: auto;
+      height: 3px;
+      display: flex;
+      gap: 1px;
+      background: var(--field)
+    }
+
+    .smix {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 3px;
+      display: flex;
+      gap: 1px
+    }
+
+    /* EmployeeToolbar */
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding: 16px
+    }
+
+    .sw {
+      position: relative;
+      display: inline-flex;
+      height: 36px;
+      max-width: 240px;
+      align-items: center;
+      gap: 8px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      padding: 0 12px;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      cursor: pointer
+    }
+
+    .sw svg {
+      flex: none;
+      stroke: var(--muted);
+      fill: none;
+      stroke-width: 2
+    }
+
+    .sw .ib {
+      border-radius: 4px;
+      background: var(--brandsoft);
+      padding: 2px 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted)
+    }
+
+    .tinp {
+      display: flex;
+      height: 40px;
+      width: 256px;
+      align-items: center;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--field);
+      box-shadow: inset 0 0 0 .5px rgba(0, 0, 0, 0)
+    }
+
+    .tinp .lead {
+      display: flex;
+      flex: none;
+      align-items: center;
+      padding-left: 12px;
+      color: var(--muted)
+    }
+
+    .tinp .lead svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2
+    }
+
+    .tinp .ph {
+      padding-left: 12px;
+      font-size: 14px;
+      color: var(--subtle)
+    }
+
+    .btn9 {
+      display: inline-flex;
+      height: 36px;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      padding: 0 14px;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      cursor: pointer
+    }
+
+    .btn9 svg,
+    .btn9 .pin {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      display: inline-block
+    }
+
+    .btn9.fld {
+      background: var(--field);
+      border-color: var(--line)
+    }
+
+    .cntbadge {
+      display: inline-block;
+      border-radius: 4px;
+      background: var(--brand);
+      padding: 2px 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--onbrand)
+    }
+
+    .gright {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .split {
+      display: inline-flex;
+      height: 36px;
+      overflow: hidden;
+      border-radius: 8px;
+      background: var(--ink);
+      color: var(--surface);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 1px 2px rgba(15, 23, 42, .2)
+    }
+
+    .split .sa {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 12px 0 14px;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      color: inherit;
+      background: transparent;
+      border: 0;
+      cursor: pointer
+    }
+
+    .split .sa svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2
+    }
+
+    .split .vr {
+      margin: 8px 0;
+      width: 1px;
+      background: rgba(255, 255, 255, .2)
+    }
+
+    .split .sc {
+      display: inline-flex;
+      width: 32px;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 0;
+      color: inherit;
+      cursor: pointer
+    }
+
+    .split .sc svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2
+    }
+
+    /* EmployeeTable — px-4 py-2.5 th, px-4 py-3 td, first pl-5 last pr-5 */
+    .empsec {
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, .04), 0 1px 3px rgba(15, 23, 42, .04)
+    }
+
+    table.emp {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px
+    }
+
+    .emp thead tr {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--surface2)
+    }
+
+    .emp th {
+      white-space: nowrap;
+      padding: 10px 16px 10px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted)
+    }
+
+    .emp th:first-child {
+      padding-left: 20px
+    }
+
+    .emp tbody tr {
+      border-bottom: 1px solid var(--line)
+    }
+
+    .emp tbody tr:last-child {
+      border-bottom: none
+    }
+
+    .emp td {
+      white-space: nowrap;
+      padding: 12px 16px;
+      color: var(--body);
+      vertical-align: middle
+    }
+
+    .emp td:first-child {
+      padding-left: 20px
+    }
+
+    .emp td:last-child {
+      padding-right: 20px
+    }
+
+    .emp .cell {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .pavatar {
+      height: 36px;
+      width: 36px;
+      flex: none;
+      border-radius: 99px;
+      object-fit: cover;
+      box-shadow: inset 0 0 0 1px var(--line)
+    }
+
+    .pav {
+      display: flex;
+      height: 36px;
+      width: 36px;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      border-radius: 99px;
+      overflow: hidden;
+      background: var(--brandsoft);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--body);
+      box-shadow: inset 0 0 0 1px var(--line)
+    }
+
+    .nm {
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+      white-space: nowrap
+    }
+
+    .pos {
+      margin-top: 2px;
+      font-size: 12px;
+      color: var(--subtle)
+    }
+
+    .moreb {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: var(--surface2);
+      padding: 0 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted)
+    }
+
+    .wchip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 600
+    }
+
+    .wchip .wd {
+      height: 6px;
+      width: 6px;
+      border-radius: 99px;
+      background: currentColor
+    }
+
+    .w-reg {
+      background: var(--regsoft);
+      color: var(--regink);
+      box-shadow: inset 0 0 0 1px rgba(52, 94, 168, .15)
+    }
+
+    .w-shi {
+      background: var(--shiftsoft);
+      color: var(--shiftink);
+      box-shadow: inset 0 0 0 1px rgba(28, 115, 110, .15)
+    }
+
+    .w-cyc {
+      background: #faf0f4;
+      color: #9a4074;
+      box-shadow: inset 0 0 0 1px rgba(154, 64, 116, .15)
+    }
+
+    .wnote {
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--subtle)
+    }
+
+    .tin {
+      font-variant-numeric: tabular-nums
+    }
+
+    .wh {
+      font-weight: 600;
+      color: var(--body)
+    }
+
+    .brn {
+      color: var(--muted)
+    }
+
+    .jnd {
+      color: var(--muted)
+    }
+
+    .cin {
+      font-weight: 700;
+      color: var(--presentink)
+    }
+
+    .cin.late {
+      color: var(--lateink)
+    }
+
+    .cinn {
+      margin-top: 2px;
+      font-size: 12px;
+      color: var(--subtle)
+    }
+
+    .cinn.late {
+      font-weight: 600;
+      color: var(--lateink)
+    }
+
+    .out {
+      font-weight: 700;
+      color: var(--ink)
+    }
+
+    .atw {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--presentink)
+    }
+
+    .atw .wd {
+      height: 6px;
+      width: 6px;
+      border-radius: 99px;
+      background: var(--present)
+    }
+
+    .dash {
+      color: var(--subtle)
+    }
+
+    .tfoot {
+      border-top: 1px solid var(--line);
+      padding: 12px 20px;
+      font-size: 14px;
+      color: var(--muted)
+    }
+
+    .sfirst {
+      position: relative;
+      padding: 20px 20px 24px;
+      border-right: 1px solid var(--line)
+    }
+
+    .stab {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: 3px;
+      display: flex;
+      gap: 1px
+    }
+
+    .stab i {
+      display: block;
+      height: 100%
+    }
+
+    .stab .f1 {
+      flex-grow: 13;
+      background: #3f9d6f
+    }
+
+    .stab .f2 {
+      flex-grow: 4;
+      background: #cc8f33
+    }
+
+    .stab .f3 {
+      flex-grow: 4;
+      background: #d0584f
+    }
+
+    .stab .f4 {
+      flex-grow: 3;
+      background: #7d70c8
+    }
+
+    .stab .t1 {
+      width: 54%;
+      background: #3f9d6f
+    }
+
+    .stab .t2 {
+      width: 17%;
+      background: #cc8f33
+    }
+
+    .stab .t3 {
+      width: 17%;
+      background: #d0584f
+    }
+
+    .stab .t4 {
+      width: 13%;
+      background: #7d70c8
+    }
+
+    /* ===== LocaleSwitcher trigger (GlobeIcon + code) ===== */
+    .locbtn { gap: 6px; padding: 0 10px; color: var(--muted) }
+    .locbtn svg { width: 18px; height: 18px }
+    .loccode { font-size: 12px; font-weight: 600; color: inherit }
+
+    /* ===== STATE SHEETS — ochiq holatlar ===== */
+    .statesheet { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:40px; padding:40px; background:var(--canvas); border-radius:14px }
+    .statecard { position:relative; display:flex; flex-direction:column; gap:12px; padding:24px; border-radius:12px; background:var(--surface); border:1px solid var(--line); box-shadow:0 1px 2px rgba(15,23,42,.04),0 1px 3px rgba(15,23,42,.06) }
+    .statecard .tag { display:inline-flex; align-items:center; gap:6px; align-self:flex-start; padding:3px 8px; border-radius:6px; background:var(--brandsoft); font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--ink) }
+    .statecard h4 { margin:0; font-size:15px; font-weight:700; color:var(--ink); letter-spacing:-.01em }
+    .statecard .cap { font-size:12px; color:var(--muted); line-height:1.5 }
+    .stage { position:relative; display:flex; align-items:flex-start; gap:12px; padding:20px; border-radius:10px; background:var(--canvas); min-height:120px }
+    .stage .anchor { position:relative; display:inline-block }
+    .stage.tall { min-height:520px }
+    .stage.wide { grid-column: span 2 }
+
+    /* Popover base */
+    .pop { position:absolute; top:calc(100% + 6px); left:0; z-index:10; border-radius:10px; border:1px solid var(--line); background:var(--surface); box-shadow:0 20px 25px -5px rgba(15,23,42,.10),0 8px 10px -6px rgba(15,23,42,.05) }
+    .pop.right { left:auto; right:0 }
+
+    /* BranchSwitcher dropdown */
+    .pop.bsw { width:300px; overflow:hidden }
+    .bsw-search { position:relative; border-bottom:1px solid var(--line) }
+    .bsw-search .sicon { position:absolute; left:12px; top:50%; transform:translateY(-50%); width:16px; height:16px; stroke:var(--subtle); fill:none; stroke-width:2 }
+    .bsw-search .sph { display:flex; align-items:center; height:40px; padding:0 12px 0 36px; font-size:14px; color:var(--subtle) }
+    .bsw-list { max-height:340px; padding:6px; overflow-y:auto }
+    .bsw-row { display:flex; align-items:center; gap:10px; width:100%; padding:6px 8px; border-radius:6px; border:0; background:transparent; text-align:left; cursor:pointer; font:inherit }
+    .bsw-row.sel { background:var(--canvas) }
+    .bsw-row .cbx { width:16px; height:16px; flex:none; display:flex; align-items:center; justify-content:center; color:var(--ink) }
+    .bsw-row .cbx svg { width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:2.5 }
+    .bsw-row .lbl { flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-size:13px; color:var(--body) }
+    .bsw-row.sel .lbl { font-weight:600; color:var(--ink) }
+    .bsw-row .sub { display:block; font-size:11px; color:var(--subtle); margin-top:1px; font-weight:400 }
+    .bsw-row .n { font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums }
+    .bsw-row .n.zero { color:var(--subtle) }
+    .bsw-grp { padding:8px 8px 4px; font-size:11px; font-weight:600; color:var(--subtle) }
+    .bsw-sep { margin:6px 0; height:1px; background:var(--line) }
+    .bsw-foot { display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); background:var(--surface-2); padding:8px 12px; font-size:11px; color:var(--muted) }
+
+    /* DatePicker calendar */
+    .pop.dpcal { padding:12px; width:276px }
+    .cal { width:252px }
+    .cal-head { display:flex; align-items:center; justify-content:space-between; height:28px; margin-bottom:8px }
+    .cal-navbtn { display:flex; width:28px; height:28px; align-items:center; justify-content:center; border-radius:6px; border:0; background:transparent; color:var(--muted); cursor:pointer; padding:0 }
+    .cal-navbtn svg { width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:2 }
+    .cal-title { padding:2px 8px; border-radius:6px; font-size:14px; font-weight:600; color:var(--ink) }
+    .cal-grid { display:grid; grid-template-columns:repeat(7, 1fr) }
+    .cal-wd { display:flex; height:32px; align-items:center; justify-content:center; font-size:11px; font-weight:500; color:var(--subtle) }
+    .cal-cell { height:36px; padding:2px 0 }
+    .cal-day { position:relative; display:flex; margin:0 auto; width:32px; height:32px; align-items:center; justify-content:center; border-radius:6px; border:0; background:transparent; font-size:13px; color:var(--body); font-variant-numeric:tabular-nums; cursor:pointer; font-family:inherit; padding:0 }
+    .cal-day.sel { background:var(--brand); font-weight:600; color:var(--onbrand) }
+    .cal-day.dis { color:rgba(148,151,161,.5); cursor:not-allowed }
+    .cal-day .tdot { position:absolute; bottom:4px; left:50%; transform:translateX(-50%); width:4px; height:4px; border-radius:99px; background:var(--ink) }
+    .cal-foot { display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding-top:10px; margin-top:8px }
+    .cal-foot .lb { font-size:12px; color:var(--muted) }
+    .cal-foot .today { padding:4px 8px; border-radius:6px; border:0; background:transparent; font-size:12px; font-weight:600; color:var(--ink); cursor:pointer; font-family:inherit }
+
+    /* AddEmployee dropdown menu */
+    .pop.menu { width:256px; padding:6px }
+    .menu-item { display:flex; align-items:flex-start; gap:12px; width:100%; padding:8px 10px; border-radius:8px; border:0; background:transparent; text-align:left; cursor:pointer; font:inherit }
+    .menu-item .mi-icon { margin-top:2px; width:16px; height:16px; flex:none; stroke:var(--muted); fill:none; stroke-width:2 }
+    .menu-item .mi-t { display:block; font-size:14px; font-weight:600; color:var(--ink) }
+    .menu-item .mi-s { display:block; font-size:12px; color:var(--muted); margin-top:2px }
+
+    /* Locale dropdown */
+    .pop.locdrop { width:176px; padding:4px; border-radius:12px }
+    .locdrop .lt { padding:6px 10px; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.04em; color:var(--subtle) }
+    .locdrop .li { display:flex; align-items:center; justify-content:space-between; gap:8px; width:100%; padding:8px 10px; border-radius:8px; border:0; background:transparent; font-size:14px; font-weight:500; color:var(--body); cursor:pointer; font:inherit }
+    .locdrop .li.cur { background:var(--brandsoft); color:var(--ink) }
+    .locdrop .li .ck { width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:2 }
+
+    /* FilterDialog modal */
+    .overlay { position:absolute; inset:0; background:rgba(0,0,0,.5); display:flex; align-items:center; justify-content:center; padding:16px; border-radius:10px }
+    .modal { position:relative; display:flex; flex-direction:column; width:100%; max-width:768px; max-height:85vh; border-radius:12px; border:1px solid var(--line); background:var(--surface); box-shadow:0 25px 50px -12px rgba(0,0,0,.25); overflow:hidden }
+    .modal-head { display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); padding:16px 24px }
+    .modal-head h3 { margin:0; font-size:18px; font-weight:600; letter-spacing:-.01em; color:var(--ink) }
+    .modal-x { padding:6px; border-radius:8px; border:0; background:transparent; color:var(--muted); cursor:pointer; display:flex }
+    .modal-x svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:2 }
+    .modal-body { display:grid; grid-template-columns:220px 1fr; min-height:0; flex:1 }
+    .modal-nav { padding:12px; border-right:1px solid var(--line) }
+    .modal-nav .cat { display:flex; align-items:center; justify-content:space-between; width:100%; padding:10px 12px; border-radius:8px; border:0; background:transparent; font-size:15px; font-weight:600; color:var(--body); cursor:pointer; font:inherit }
+    .modal-nav .cat.on { background:var(--canvas); color:var(--ink) }
+    .modal-nav .cat .cn { display:inline-flex; align-items:center; gap:8px }
+    .modal-nav .cat .cbadge { border-radius:6px; background:var(--brand); padding:0 6px; font-size:12px; font-weight:600; color:var(--onbrand); line-height:20px }
+    .modal-nav .cat .cr { width:16px; height:16px; stroke:var(--subtle); fill:none; stroke-width:2 }
+    .modal-main { display:flex; flex-direction:column; padding:16px; min-height:0 }
+    .modal-list { margin-top:8px; max-height:320px; min-height:200px; overflow-y:auto; list-style:none; padding:0 }
+    .modal-list .opt { display:flex; align-items:center; gap:12px; width:100%; padding:10px 8px; border-radius:8px; border:0; background:transparent; text-align:left; font-size:15px; color:var(--body); cursor:pointer; font:inherit }
+    .modal-list .box { display:flex; width:20px; height:20px; flex:none; align-items:center; justify-content:center; border-radius:6px; border:1px solid var(--line); background:var(--field) }
+    .modal-list .opt.on .box { border-color:var(--brand); background:var(--brand); color:var(--onbrand) }
+    .modal-list .box svg { width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:3 }
+    .modal-foot { display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--line); padding:16px 24px }
+    .modal-foot .clear { border:0; background:transparent; font-size:15px; font-weight:700; color:var(--absent-ink); cursor:pointer; font:inherit; padding:0 }
+    .modal-foot .btns { display:flex; gap:8px }
+    .btn-lg-sec { display:inline-flex; height:40px; align-items:center; justify-content:center; gap:8px; border-radius:8px; border:1px solid var(--line); background:var(--surface); padding:0 16px; font:inherit; font-size:14px; font-weight:700; color:var(--ink); cursor:pointer }
+    .btn-lg-brand { display:inline-flex; height:40px; align-items:center; justify-content:center; gap:8px; border-radius:8px; border:0; background:var(--brand); padding:0 16px; font:inherit; font-size:14px; font-weight:600; color:var(--onbrand); cursor:pointer }
+
+    /* ReportDownload date-range popover */
+    .pop.rng { right:0; left:auto; width:720px; max-width:720px; overflow:hidden; border-radius:10px }
+    .rng-head { display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); padding:12px 16px }
+    .rng-head .rt { font-size:14px; font-weight:600; color:var(--ink) }
+    .rng-head .rs { font-size:12px; color:var(--muted); margin-top:2px }
+    .rng-body { display:flex; flex-direction:row }
+    .rng-presets { display:flex; flex-direction:column; gap:4px; width:160px; padding:8px; border-right:1px solid var(--line); list-style:none; margin:0 }
+    .rng-presets .p { width:100%; padding:6px 10px; border-radius:6px; border:0; background:transparent; text-align:left; white-space:nowrap; font-size:13px; color:var(--body); cursor:pointer; font:inherit }
+    .rng-presets .p.on { background:var(--brandsoft); font-weight:600; color:var(--ink) }
+    .rng-cals { display:flex; justify-content:center; gap:24px; padding:16px }
+    .rng-foot { display:flex; align-items:center; justify-content:space-between; gap:12px; border-top:1px solid var(--line); background:var(--surface-2); padding:12px 16px }
+    .rng-foot .l { display:flex; align-items:center; gap:12px }
+    .fmt-toggle { display:inline-flex; border-radius:8px; border:1px solid var(--line); background:var(--surface); padding:2px }
+    .fmt-toggle .f { display:inline-flex; height:28px; align-items:center; gap:6px; border-radius:6px; border:0; background:transparent; padding:0 10px; font-size:12px; font-weight:600; color:var(--muted); cursor:pointer; font:inherit }
+    .fmt-toggle .f.on { background:var(--brandsoft); color:var(--ink) }
+    .fmt-toggle .f svg { width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:2 }
+    .rng-meta { font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums }
+    .rng-meta b { font-weight:600; color:var(--ink) }
+    .btn-sm-brand { display:inline-flex; height:32px; min-width:124px; align-items:center; justify-content:center; gap:8px; border-radius:8px; border:0; background:var(--brand); padding:0 12px; font:inherit; font-size:13px; font-weight:600; color:var(--onbrand); cursor:pointer }
+    .btn-sm-brand svg { width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:2 }
+    .btn-sm-n { display:inline-flex; height:32px; align-items:center; justify-content:center; gap:8px; border-radius:8px; border:0; background:transparent; padding:0 12px; font:inherit; font-size:13px; font-weight:600; color:var(--body); cursor:pointer }
+
+    /* Focus / hover demos */
+    .focusstate { border-color:rgba(24,24,27,.4) !important; background:var(--canvas) !important }
+    .hoverstate { background:var(--canvas) !important }
+    .emp tbody tr.hov { background:var(--surface-2) }
+    .lbl-sm { font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--subtle) }
+  </style>
+</head>
+
+<body style="display:block;gap:0"><div class="board-label">03b · Xodimlar — ochiq holatlar (dropdown / dialog / focus / hover)</div><div class="board" style="width:auto;max-width:1600px">
+      <div class="statesheet">
+
+        <!-- 1. LocaleSwitcher OPEN -->
+        <div class="statecard">
+          <span class="tag">TopBar</span>
+          <h4>LocaleSwitcher — ochiq</h4>
+          <div class="cap">Globe icon + “O'zbekcha” trigger. Dropdown: w-44, p-1, 4 ta til, aktiv — bg-brand-soft + check.</div>
+          <div class="stage tall">
+            <div class="anchor" style="margin-left:auto">
+              <button class="btn9 locbtn focusstate"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20" />
+                </svg><span class="loccode">O'zbekcha</span></button>
+              <div class="pop locdrop right">
+                <div class="lt">Interfeys tili</div>
+                <button class="li cur"><span>O'zbekcha</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="ck" viewBox="0 0 24 24">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg></button>
+                <button class="li"><span>Ўзбекча</span></button>
+                <button class="li"><span>Русский</span></button>
+                <button class="li"><span>English</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. UserProfile (hover) -->
+        <div class="statecard">
+          <span class="tag">TopBar</span>
+          <h4>UserProfile — hover holati</h4>
+          <div class="cap">Koddagi yagona holat: hover:bg-canvas. Border yo'q, faqat rounded-lg + gap-2.5 + chevron.</div>
+          <div class="stage">
+            <div class="anchor" style="margin-left:auto">
+              <button class="uchip hoverstate"><span class="uav">R</span><span><b>Rabola Admin</b><span>Administrator</span></span><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:16px;height:16px;stroke:var(--muted);fill:none;stroke-width:2">
+                  <path d="m6 9 6 6 6-6" />
+                </svg></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. BranchSwitcher OPEN -->
+        <div class="statecard">
+          <span class="tag">Toolbar</span>
+          <h4>BranchSwitcher — ochiq</h4>
+          <div class="cap">Trigger: border-ink/40 + bg-canvas. Popover: w-300px, search + “Barcha filiallar” + region guruhlar + footer.</div>
+          <div class="stage tall">
+            <div class="anchor">
+              <button class="sw focusstate"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:16px;height:16px">
+                  <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+                  <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4" />
+                </svg><span>Barcha filiallar</span><span class="ib">21</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:14px;height:14px">
+                  <path d="m7 15 5 5 5-5M7 9l5-5 5 5" />
+                </svg></button>
+              <div class="pop bsw">
+                <div class="bsw-search">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="sicon" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="m21 21-4.3-4.3" />
+                  </svg>
+                  <div class="sph">Filial yoki hudud qidirish</div>
+                </div>
+                <div class="bsw-list">
+                  <button class="bsw-row sel">
+                    <span class="cbx" style="gap:8px"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg></span>
+                    <span class="lbl">Barcha filiallar<span class="sub">21 ta filial</span></span>
+                    <span class="n">24</span>
+                  </button>
+                  <div class="bsw-sep"></div>
+                  <div class="bsw-grp">Toshkent shahri</div>
+                  <button class="bsw-row"><span class="cbx" style="gap:8px"></span><span class="lbl">Markaziy ofis</span><span class="n">6</span></button>
+                  <button class="bsw-row"><span class="cbx" style="gap:8px"></span><span class="lbl">Chilonzor filiali</span><span class="n">4</span></button>
+                  <button class="bsw-row"><span class="cbx" style="gap:8px"></span><span class="lbl">Yunusobod filiali</span><span class="n">3</span></button>
+                  <button class="bsw-row"><span class="cbx" style="gap:8px"></span><span class="lbl">Sergeli filiali</span><span class="n zero">0</span></button>
+                  <div class="bsw-grp">Toshkent viloyati</div>
+                  <button class="bsw-row"><span class="cbx" style="gap:8px"></span><span class="lbl">Chirchiq filiali</span><span class="n">2</span></button>
+                  <button class="bsw-row"><span class="cbx" style="gap:8px"></span><span class="lbl">Olmaliq filiali</span><span class="n zero">0</span></button>
+                </div>
+                <div class="bsw-foot"><span>21 ta filial · 24 xodim</span><span>Esc — yopish</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. DatePicker OPEN -->
+        <div class="statecard">
+          <span class="tag">Toolbar</span>
+          <h4>DatePicker — ochiq (Oktabr 2026)</h4>
+          <div class="cap">Trigger: border-ink/40 + text-ink. Popover: p-3, calendar 252px, 26 tanlangan (bg-brand), 27–31 dis, “Bugun” tugmasi.</div>
+          <div class="stage tall">
+            <div class="anchor">
+              <button class="btn9 fld focusstate" style="color:var(--ink)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2" />
+                  <path d="M16 2v4M8 2v4M3 10h18" />
+                </svg>26.10.2026</button>
+              <div class="pop dpcal">
+                <div class="cal">
+                  <div class="cal-head">
+                    <button class="cal-navbtn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="m15 18-6-6 6-6" />
+                      </svg></button>
+                    <span class="cal-title">Oktabr 2026</span>
+                    <button class="cal-navbtn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="m9 18 6-6-6-6" />
+                      </svg></button>
+                  </div>
+                  <div class="cal-grid">
+                    <div class="cal-wd">Du</div>
+                    <div class="cal-wd">Se</div>
+                    <div class="cal-wd">Ch</div>
+                    <div class="cal-wd">Pa</div>
+                    <div class="cal-wd">Ju</div>
+                    <div class="cal-wd">Sh</div>
+                    <div class="cal-wd">Ya</div>
+                    <div class="cal-cell"></div>
+                    <div class="cal-cell"></div>
+                    <div class="cal-cell"></div>
+                    <div class="cal-cell"><button class="cal-day">1</button></div>
+                    <div class="cal-cell"><button class="cal-day">2</button></div>
+                    <div class="cal-cell"><button class="cal-day">3</button></div>
+                    <div class="cal-cell"><button class="cal-day">4</button></div>
+                    <div class="cal-cell"><button class="cal-day">5</button></div>
+                    <div class="cal-cell"><button class="cal-day">6</button></div>
+                    <div class="cal-cell"><button class="cal-day">7</button></div>
+                    <div class="cal-cell"><button class="cal-day">8</button></div>
+                    <div class="cal-cell"><button class="cal-day">9</button></div>
+                    <div class="cal-cell"><button class="cal-day">10</button></div>
+                    <div class="cal-cell"><button class="cal-day">11</button></div>
+                    <div class="cal-cell"><button class="cal-day">12</button></div>
+                    <div class="cal-cell"><button class="cal-day">13</button></div>
+                    <div class="cal-cell"><button class="cal-day">14</button></div>
+                    <div class="cal-cell"><button class="cal-day">15</button></div>
+                    <div class="cal-cell"><button class="cal-day">16</button></div>
+                    <div class="cal-cell"><button class="cal-day">17</button></div>
+                    <div class="cal-cell"><button class="cal-day">18</button></div>
+                    <div class="cal-cell"><button class="cal-day">19</button></div>
+                    <div class="cal-cell"><button class="cal-day">20</button></div>
+                    <div class="cal-cell"><button class="cal-day">21</button></div>
+                    <div class="cal-cell"><button class="cal-day">22</button></div>
+                    <div class="cal-cell"><button class="cal-day">23</button></div>
+                    <div class="cal-cell"><button class="cal-day">24</button></div>
+                    <div class="cal-cell"><button class="cal-day">25</button></div>
+                    <div class="cal-cell"><button class="cal-day sel">26</button></div>
+                    <div class="cal-cell"><button class="cal-day dis">27</button></div>
+                    <div class="cal-cell"><button class="cal-day dis">28</button></div>
+                    <div class="cal-cell"><button class="cal-day dis">29</button></div>
+                    <div class="cal-cell"><button class="cal-day dis">30</button></div>
+                    <div class="cal-cell"><button class="cal-day dis">31</button></div>
+                    <div class="cal-cell"></div>
+                  </div>
+                  <div class="cal-foot">
+                    <span class="lb">Tanlangan: 26.10.2026</span>
+                    <button class="today">Bugun</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. AddEmployee dropdown OPEN -->
+        <div class="statecard">
+          <span class="tag">Toolbar</span>
+          <h4>AddEmployee — menyu ochiq</h4>
+          <div class="cap">Split button: bg-ink + chevron rotate-180. Menu: w-64, p-1.5, 2 items (icon + title + hint).</div>
+          <div class="stage">
+            <div class="anchor" style="margin-left:auto">
+              <div class="split">
+                <button class="sa"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M19 8v6M22 11h-6" />
+                  </svg>Xodim qo’shish</button>
+                <span class="vr"></span>
+                <button class="sc"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="transform:rotate(180deg);transition:transform .2s">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg></button>
+              </div>
+              <div class="pop menu right">
+                <button class="menu-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="mi-icon" viewBox="0 0 24 24">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M19 8v6M22 11h-6" />
+                  </svg>
+                  <span><span class="mi-t">Bitta xodim qo’shish</span><span class="mi-s">Ma’lumot va yuz rasmi</span></span>
+                </button>
+                <button class="menu-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="mi-icon" viewBox="0 0 24 24">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <path d="M14 2v6h6" />
+                    <path d="M8 13h8M8 17h8M8 9h2" />
+                  </svg>
+                  <span><span class="mi-t">Excel orqali import</span><span class="mi-s">Ro’yxatni fayldan yuklash</span></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Filters button (active state) -->
+        <div class="statecard">
+          <span class="tag">Toolbar</span>
+          <h4>Filtrlar — aktiv (2 filtr tanlangan)</h4>
+          <div class="cap">activeFilters>0 → border-ink/30 + bg-brand-soft + count badge (bg-brand, text-on-brand).</div>
+          <div class="stage">
+            <div class="anchor">
+              <button class="btn9" style="border-color:rgba(24,24,27,.3);background:var(--brandsoft);color:var(--ink)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+                </svg>Filtrlar<span class="cntbadge">2</span></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. FilterDialog — full modal (keng ustun) -->
+        <div class="statecard">
+          <span class="tag">Dialog</span>
+          <h4>FilterDialog — Filtrlar</h4>
+          <div class="cap">fixed inset-0 + black/50 overlay. max-w-3xl, rounded-2xl. 220px category nav + options panel. Footer: clear / close / apply.</div>
+          <div class="stage tall wide" style="padding:0;background:var(--canvas)">
+            <div class="overlay" style="position:relative;border-radius:10px">
+              <div class="modal">
+                <div class="modal-head">
+                  <h3>Filtrlar</h3>
+                  <button class="modal-x"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path d="M18 6 6 18M6 6l12 12" />
+                    </svg></button>
+                </div>
+                <div class="modal-body">
+                  <nav class="modal-nav">
+                    <button class="cat on"><span>Lavozim</span><span class="cn"><span class="cbadge">1</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="cr" viewBox="0 0 24 24">
+                          <path d="m9 18 6-6-6-6" />
+                        </svg></span></button>
+                    <button class="cat"><span>Ish turi</span><span class="cn"><span class="cbadge">1</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="cr" viewBox="0 0 24 24">
+                          <path d="m9 18 6-6-6-6" />
+                        </svg></span></button>
+                    <button class="cat"><span>Holat</span><span class="cn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="cr" viewBox="0 0 24 24">
+                          <path d="m9 18 6-6-6-6" />
+                        </svg></span></button>
+                  </nav>
+                  <div class="modal-main">
+                    <div class="tinp" style="width:100%"><span class="lead"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <circle cx="11" cy="11" r="8" />
+                          <path d="m21 21-4.3-4.3" />
+                        </svg></span><span class="ph">Qidirish</span></div>
+                    <ul class="modal-list">
+                      <li><button class="opt on"><span class="box"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                              <path d="M20 6 9 17l-5-5" />
+                            </svg></span>Bosh dasturchi</button></li>
+                      <li><button class="opt"><span class="box"></span>Buxgalter</button></li>
+                      <li><button class="opt"><span class="box"></span>Filial rahbari</button></li>
+                      <li><button class="opt"><span class="box"></span>Frontend dasturchi</button></li>
+                      <li><button class="opt"><span class="box"></span>HR menejer</button></li>
+                      <li><button class="opt"><span class="box"></span>Haydovchi</button></li>
+                      <li><button class="opt"><span class="box"></span>Kassir</button></li>
+                      <li><button class="opt"><span class="box"></span>Omborchi</button></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="modal-foot">
+                  <button class="clear">Filtrlarni tozalash</button>
+                  <div class="btns">
+                    <button class="btn-lg-sec">Yopish</button>
+                    <button class="btn-lg-brand">Natijalarni ko’rsatish</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. ReportDownload popover (keng ustun) -->
+        <div class="statecard">
+          <span class="tag">Popover</span>
+          <h4>Hisobot — date-range popover</h4>
+          <div class="cap">Trigger: Download icon + “Hisobot”. Popover: 720px, presets (160px) + 2 calendar + format toggle + footer.</div>
+          <div class="stage tall wide" style="padding:20px">
+            <div class="anchor" style="margin-left:auto;width:100%">
+              <button class="btn9 focusstate" style="float:right"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <path d="m7 10 5 5 5-5" />
+                  <path d="M12 15V3" />
+                </svg>Hisobot</button>
+              <div class="pop rng">
+                <div class="rng-head">
+                  <div>
+                    <div class="rt">Davomat hisoboti</div>
+                    <div class="rs">Davrni tanlang — Barcha filiallar</div>
+                  </div>
+                </div>
+                <div class="rng-body">
+                  <ul class="rng-presets">
+                    <li><button class="p">Bugun</button></li>
+                    <li><button class="p">Kecha</button></li>
+                    <li><button class="p">Shu hafta</button></li>
+                    <li><button class="p">O'tgan hafta</button></li>
+                    <li><button class="p on">Shu oy</button></li>
+                    <li><button class="p">O'tgan oy</button></li>
+                    <li><button class="p">Oxirgi 30 kun</button></li>
+                  </ul>
+                  <div class="rng-cals">
+                    <div class="cal">
+                      <div class="cal-head">
+                        <button class="cal-navbtn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="m15 18-6-6 6-6" />
+                          </svg></button>
+                        <span class="cal-title">Sentabr 2026</span><span style="width:28px"></span>
+                      </div>
+                      <div class="cal-grid">
+                        <div class="cal-wd">Du</div>
+                        <div class="cal-wd">Se</div>
+                        <div class="cal-wd">Ch</div>
+                        <div class="cal-wd">Pa</div>
+                        <div class="cal-wd">Ju</div>
+                        <div class="cal-wd">Sh</div>
+                        <div class="cal-wd">Ya</div>
+                        <div class="cal-cell"><button class="cal-day">1</button></div>
+                        <div class="cal-cell"><button class="cal-day">2</button></div>
+                        <div class="cal-cell"><button class="cal-day">3</button></div>
+                        <div class="cal-cell"><button class="cal-day">4</button></div>
+                        <div class="cal-cell"><button class="cal-day">5</button></div>
+                        <div class="cal-cell"><button class="cal-day">6</button></div>
+                        <div class="cal-cell"><button class="cal-day">7</button></div>
+                        <div class="cal-cell"><button class="cal-day">8</button></div>
+                        <div class="cal-cell"><button class="cal-day">9</button></div>
+                        <div class="cal-cell"><button class="cal-day">10</button></div>
+                        <div class="cal-cell"><button class="cal-day">11</button></div>
+                        <div class="cal-cell"><button class="cal-day">12</button></div>
+                        <div class="cal-cell"><button class="cal-day">13</button></div>
+                        <div class="cal-cell"><button class="cal-day">14</button></div>
+                        <div class="cal-cell"><button class="cal-day">15</button></div>
+                        <div class="cal-cell"><button class="cal-day">16</button></div>
+                        <div class="cal-cell"><button class="cal-day">17</button></div>
+                        <div class="cal-cell"><button class="cal-day">18</button></div>
+                        <div class="cal-cell"><button class="cal-day">19</button></div>
+                        <div class="cal-cell"><button class="cal-day">20</button></div>
+                        <div class="cal-cell"><button class="cal-day">21</button></div>
+                        <div class="cal-cell"><button class="cal-day">22</button></div>
+                        <div class="cal-cell"><button class="cal-day">23</button></div>
+                        <div class="cal-cell"><button class="cal-day">24</button></div>
+                        <div class="cal-cell"><button class="cal-day">25</button></div>
+                        <div class="cal-cell"><button class="cal-day">26</button></div>
+                        <div class="cal-cell"><button class="cal-day">27</button></div>
+                        <div class="cal-cell"><button class="cal-day">28</button></div>
+                        <div class="cal-cell"><button class="cal-day">29</button></div>
+                        <div class="cal-cell"><button class="cal-day sel">30</button></div>
+                        <div class="cal-cell"></div>
+                        <div class="cal-cell"></div>
+                        <div class="cal-cell"></div>
+                        <div class="cal-cell"></div>
+                        <div class="cal-cell"></div>
+                        <div class="cal-cell"></div>
+                        <div class="cal-cell"></div>
+                      </div>
+                    </div>
+                    <div class="cal">
+                      <div class="cal-head"><span style="width:28px"></span><span class="cal-title">Oktabr 2026</span>
+                        <button class="cal-navbtn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="m9 18 6-6-6-6" />
+                          </svg></button>
+                      </div>
+                      <div class="cal-grid">
+                        <div class="cal-wd">Du</div>
+                        <div class="cal-wd">Se</div>
+                        <div class="cal-wd">Ch</div>
+                        <div class="cal-wd">Pa</div>
+                        <div class="cal-wd">Ju</div>
+                        <div class="cal-wd">Sh</div>
+                        <div class="cal-wd">Ya</div>
+                        <div class="cal-cell"></div>
+                        <div class="cal-cell"></div>
+                        <div class="cal-cell"></div>
+                        <div class="cal-cell"><button class="cal-day">1</button></div>
+                        <div class="cal-cell"><button class="cal-day">2</button></div>
+                        <div class="cal-cell"><button class="cal-day">3</button></div>
+                        <div class="cal-cell"><button class="cal-day">4</button></div>
+                        <div class="cal-cell"><button class="cal-day">5</button></div>
+                        <div class="cal-cell"><button class="cal-day">6</button></div>
+                        <div class="cal-cell"><button class="cal-day">7</button></div>
+                        <div class="cal-cell"><button class="cal-day">8</button></div>
+                        <div class="cal-cell"><button class="cal-day">9</button></div>
+                        <div class="cal-cell"><button class="cal-day">10</button></div>
+                        <div class="cal-cell"><button class="cal-day">11</button></div>
+                        <div class="cal-cell"><button class="cal-day">12</button></div>
+                        <div class="cal-cell"><button class="cal-day">13</button></div>
+                        <div class="cal-cell"><button class="cal-day">14</button></div>
+                        <div class="cal-cell"><button class="cal-day">15</button></div>
+                        <div class="cal-cell"><button class="cal-day">16</button></div>
+                        <div class="cal-cell"><button class="cal-day">17</button></div>
+                        <div class="cal-cell"><button class="cal-day">18</button></div>
+                        <div class="cal-cell"><button class="cal-day">19</button></div>
+                        <div class="cal-cell"><button class="cal-day">20</button></div>
+                        <div class="cal-cell"><button class="cal-day">21</button></div>
+                        <div class="cal-cell"><button class="cal-day">22</button></div>
+                        <div class="cal-cell"><button class="cal-day">23</button></div>
+                        <div class="cal-cell"><button class="cal-day">24</button></div>
+                        <div class="cal-cell"><button class="cal-day">25</button></div>
+                        <div class="cal-cell"><button class="cal-day sel">26<span class="tdot" style="background:var(--onbrand)"></span></button></div>
+                        <div class="cal-cell"><button class="cal-day dis">27</button></div>
+                        <div class="cal-cell"><button class="cal-day dis">28</button></div>
+                        <div class="cal-cell"><button class="cal-day dis">29</button></div>
+                        <div class="cal-cell"><button class="cal-day dis">30</button></div>
+                        <div class="cal-cell"><button class="cal-day dis">31</button></div>
+                        <div class="cal-cell"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="rng-foot">
+                  <div class="l">
+                    <div class="fmt-toggle">
+                      <button class="f on"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                          <path d="M14 2v6h6" />
+                          <path d="M8 13h8M8 17h8M8 9h2" />
+                        </svg>Excel</button>
+                      <button class="f"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                          <path d="M14 2v6h6" />
+                        </svg>PDF</button>
+                    </div>
+                    <span class="rng-meta"><b>01.10 – 26.10.2026</b> · 26 kun</span>
+                  </div>
+                  <div class="btns" style="display:flex;gap:8px">
+                    <button class="btn-sm-n">Bekor qilish</button>
+                    <button class="btn-sm-brand"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <path d="m7 10 5 5 5-5" />
+                        <path d="M12 15V3" />
+                      </svg>Yuklab olish</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Focus / hover states -->
+        <div class="statecard">
+          <span class="tag">Micro</span>
+          <h4>Focus / hover holatlari</h4>
+          <div class="cap">Input focus: focus-within:border-ink/40. Table row hover: bg-surface-2. Sidebar item hover: bg-canvas.</div>
+          <div class="stage" style="flex-direction:column;align-items:stretch;gap:14px">
+            <div class="tinp focusstate" style="width:256px"><span class="lead"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.3-4.3" />
+                </svg></span><span class="ph" style="color:var(--ink)">Mustafo</span></div>
+            <div class="nitem hoverstate" style="width:220px"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>Qurilmalar</div>
+            <div style="border:1px solid var(--line);border-radius:8px;background:var(--surface);padding:6px 0">
+              <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--surface-2)"><span class="pav">MQ</span>
+                <div><span class="nm">Mustafo Qodirov</span>
+                  <div class="pos">Bosh dasturchi</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+</body></html>

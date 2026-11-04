@@ -1,0 +1,752 @@
+
+> att-web@0.1.0 dev
+> next dev -p 3001
+
+  ▲ Next.js 14.2.15
+  - Local:        http://localhost:3001
+
+ ✓ Starting...
+ ✓ Ready in 2.3s
+ ○ Compiling /adminlar ...
+ ✓ Compiled /adminlar in 5.4s (1357 modules)
+IntlError: ENVIRONMENT_FALLBACK: There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone
+    at useTranslationsImpl (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:101:13)
+    at useTranslations (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:133:10)
+    at eval (webpack-internal:///(ssr)/./node_modules/next-intl/dist/esm/development/react-client/index.js:24:14)
+    at AppShell (webpack-internal:///(ssr)/./src/shared/layout/AppShell.tsx:36:76)
+    at au (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:15122
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:45321)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808) {
+  code: 'ENVIRONMENT_FALLBACK',
+  originalMessage: 'There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone'
+}
+ GET /adminlar 200 in 5872ms
+ ✓ Compiled in 5.3s (688 modules)
+ ✓ Compiled in 406ms (688 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 1535ms (1477 modules)
+IntlError: ENVIRONMENT_FALLBACK: There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone
+    at useTranslationsImpl (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:101:13)
+    at useTranslations (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:133:10)
+    at eval (webpack-internal:///(ssr)/./node_modules/next-intl/dist/esm/development/react-client/index.js:24:14)
+    at AppShell (webpack-internal:///(ssr)/./src/shared/layout/AppShell.tsx:36:76)
+    at au (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:15122
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:45321)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776) {
+  code: 'ENVIRONMENT_FALLBACK',
+  originalMessage: 'There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone'
+}
+ GET / 200 in 1831ms
+ ✓ Compiled /adminlar in 157ms (759 modules)
+IntlError: ENVIRONMENT_FALLBACK: There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone
+    at useTranslationsImpl (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:101:13)
+    at useTranslations (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:133:10)
+    at eval (webpack-internal:///(ssr)/./node_modules/next-intl/dist/esm/development/react-client/index.js:24:14)
+    at AppShell (webpack-internal:///(ssr)/./src/shared/layout/AppShell.tsx:36:76)
+    at au (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:15122
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:45321)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808) {
+  code: 'ENVIRONMENT_FALLBACK',
+  originalMessage: 'There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone'
+}
+ GET /adminlar 200 in 326ms
+ ○ Compiling /monitoring ...
+ ✓ Compiled /monitoring in 1371ms (1559 modules)
+IntlError: ENVIRONMENT_FALLBACK: There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone
+    at useTranslationsImpl (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:101:13)
+    at useTranslations (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:133:10)
+    at eval (webpack-internal:///(ssr)/./node_modules/next-intl/dist/esm/development/react-client/index.js:24:14)
+    at AppShell (webpack-internal:///(ssr)/./src/shared/layout/AppShell.tsx:36:76)
+    at au (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:15122
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:45321)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808) {
+  code: 'ENVIRONMENT_FALLBACK',
+  originalMessage: 'There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone'
+}
+ GET /monitoring 200 in 1668ms
+ GET /adminlar 200 in 52ms
+ GET /adminlar 200 in 87ms
+ GET /adminlar 200 in 56ms
+ GET /adminlar 200 in 115ms
+ GET /adminlar 200 in 162ms
+ ✓ Compiled in 1915ms (786 modules)
+ ✓ Compiled in 1499ms (786 modules)
+ ✓ Compiled in 1066ms (786 modules)
+ ✓ Compiled in 310ms (786 modules)
+ ✓ Compiled in 304ms (786 modules)
+ ✓ Compiled in 231ms (786 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 1756ms (1573 modules)
+IntlError: ENVIRONMENT_FALLBACK: There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone
+    at useTranslationsImpl (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:101:13)
+    at useTranslations (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:133:10)
+    at eval (webpack-internal:///(ssr)/./node_modules/next-intl/dist/esm/development/react-client/index.js:24:14)
+    at AppShell (webpack-internal:///(ssr)/./src/shared/layout/AppShell.tsx:36:76)
+    at au (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:15122
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:45321)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808) {
+  code: 'ENVIRONMENT_FALLBACK',
+  originalMessage: 'There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone'
+}
+ GET /adminlar 200 in 727ms
+ ✓ Compiled in 361ms (786 modules)
+ ✓ Compiled in 474ms (786 modules)
+ ✓ Compiled in 270ms (786 modules)
+ ✓ Compiled in 282ms (786 modules)
+ ✓ Compiled in 767ms (1559 modules)
+ ✓ Compiled in 249ms (786 modules)
+ ✓ Compiled in 326ms (786 modules)
+ ✓ Compiled in 883ms (1575 modules)
+ ○ Compiling /sozlamalar ...
+ ✓ Compiled /sozlamalar in 1044ms (1590 modules)
+IntlError: ENVIRONMENT_FALLBACK: There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone
+    at useTranslationsImpl (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:101:13)
+    at useTranslations (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:133:10)
+    at eval (webpack-internal:///(ssr)/./node_modules/next-intl/dist/esm/development/react-client/index.js:24:14)
+    at AppShell (webpack-internal:///(ssr)/./src/shared/layout/AppShell.tsx:36:76)
+    at au (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:15122
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:45321)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808) {
+  code: 'ENVIRONMENT_FALLBACK',
+  originalMessage: 'There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone'
+}
+ GET /sozlamalar 200 in 1329ms
+ GET /sozlamalar 200 in 46ms
+ ✓ Compiled in 1417ms (1581 modules)
+ ⨯ /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/vendor-chunks/lucide-react.js:475
+;FpQ2o0S0lDQThjR0YwYUNCa1BTSk5NVFlnTWpGMkxUSmhOQ0EwSURBZ01DQXdMVFF0TkVnMllUUWdOQ0F3SURBZ01DMDBJRFIyTWlJZ0x6NEtJQ0E4Y0dGMGFDQmtQU0pOTVRZZ015NHhNamhoTkNBMElEQWdNQ0F4SURBZ055NDNORFFpSUM4K0NpQWdQSEJoZEdnZ1pEMGlUVEl5SURJeGRpMHlZVFFnTkNBd0lEQWdNQzB6TFRNdU9EY2lJQzgrQ2lBZ1BHTnBjbU5zWlNCamVEMGlPU0lnWTNrOUlqY2lJSEk5SWpRaUlDOCtDand2YzNablBnbz0pIC0gaHR0cHM6Ly9sdWNpZGUuZGV2L2ljb25zL3VzZXJzXG4gKiBAc2VlIGh0dHBzOi8vbHVjaWRlLmRldi9ndWlkZS9wYWNrYWdlcy9sdWNpZGUtcmVhY3QgLSBEb2N1bWVudGF0aW9uXG4gKlxuICogQHBhcmFtIHtPYmplY3R9IHByb3BzIC0gTHVjaWRlIGljb25zIHByb3BzIGFuZCBhbnkgdmFsaWQgU1ZHIGF0dHJpYnV0ZVxuICogQHJldHVybnMge0pTWC5FbGVtZW50fSBKU1ggRWxlbWVudFxuICpcbiAqL1xuY29uc3QgVXNlcnMgPSBjcmVhdGVMdWNpZGVJY29uKCd1c2VycycsIF9faWNvbk5vZGUpO1xuXG5leHBvcnQgZGVmYXVsdCBVc2VycztcbiJdLCJuYW1lcyI6WyJfX2ljb25Ob2RlIiwiZCIsImtleSIsImN4IiwiY3kiLCJyIiwiVXNlcnMiLCJjcmVhdGVMdWNpZGVJY29uIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/lucide-react/dist/esm/icons/users.js\n");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+
+SyntaxError: Invalid or unexpected token
+    at wrapSafe (node:internal/modules/cjs/loader:1620:18)
+    at Module._compile (node:internal/modules/cjs/loader:1662:20)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:198:28)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:162:22)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/app/adminlar/page.js:618:47
+    at Object.<anonymous> (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/app/adminlar/page.js:621:3)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/require.js:109:84)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/load-components.js:98:84
+    at async loadComponentsImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/next-server.js:709:36)
+    at async DevServer.findPageComponents (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/dev/next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:1894:24)
+    at async DevServer.renderToResponseImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:1946:32)
+    at async DevServer.pipeImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:921:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:817:17)
+    at async /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/router-server.js:173:21)
+    at async handleRequest (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/router-server.js:350:24)
+    at async requestHandlerImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/router-server.js:374:13)
+    at async Server.requestListener (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  page: '/adminlar'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 4s (1807 modules)
+ ⨯ /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/vendor-chunks/lucide-react.js:475
+;FpQ2o0S0lDQThjR0YwYUNCa1BTSk5NVFlnTWpGMkxUSmhOQ0EwSURBZ01DQXdMVFF0TkVnMllUUWdOQ0F3SURBZ01DMDBJRFIyTWlJZ0x6NEtJQ0E4Y0dGMGFDQmtQU0pOTVRZZ015NHhNamhoTkNBMElEQWdNQ0F4SURBZ055NDNORFFpSUM4K0NpQWdQSEJoZEdnZ1pEMGlUVEl5SURJeGRpMHlZVFFnTkNBd0lEQWdNQzB6TFRNdU9EY2lJQzgrQ2lBZ1BHTnBjbU5zWlNCamVEMGlPU0lnWTNrOUlqY2lJSEk5SWpRaUlDOCtDand2YzNablBnbz0pIC0gaHR0cHM6Ly9sdWNpZGUuZGV2L2ljb25zL3VzZXJzXG4gKiBAc2VlIGh0dHBzOi8vbHVjaWRlLmRldi9ndWlkZS9wYWNrYWdlcy9sdWNpZGUtcmVhY3QgLSBEb2N1bWVudGF0aW9uXG4gKlxuICogQHBhcmFtIHtPYmplY3R9IHByb3BzIC0gTHVjaWRlIGljb25zIHByb3BzIGFuZCBhbnkgdmFsaWQgU1ZHIGF0dHJpYnV0ZVxuICogQHJldHVybnMge0pTWC5FbGVtZW50fSBKU1ggRWxlbWVudFxuICpcbiAqL1xuY29uc3QgVXNlcnMgPSBjcmVhdGVMdWNpZGVJY29uKCd1c2VycycsIF9faWNvbk5vZGUpO1xuXG5leHBvcnQgZGVmYXVsdCBVc2VycztcbiJdLCJuYW1lcyI6WyJfX2ljb25Ob2RlIiwiZCIsImtleSIsImN4IiwiY3kiLCJyIiwiVXNlcnMiLCJjcmVhdGVMdWNpZGVJY29uIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/lucide-react/dist/esm/icons/users.js\n");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+
+SyntaxError: Invalid or unexpected token
+    at wrapSafe (node:internal/modules/cjs/loader:1620:18)
+    at Module._compile (node:internal/modules/cjs/loader:1662:20)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:198:28)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:162:22)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/app/adminlar/page.js:618:47
+    at Object.<anonymous> (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/app/adminlar/page.js:621:3)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/require.js:109:84)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/load-components.js:98:84
+    at async loadComponentsImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/next-server.js:709:36)
+    at async DevServer.findPageComponents (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/dev/next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:1894:24)
+    at async DevServer.renderToResponseImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:1946:32)
+    at async DevServer.pipeImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:921:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:817:17)
+    at async /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/router-server.js:173:21)
+    at async handleRequest (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/router-server.js:350:24)
+    at async requestHandlerImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/router-server.js:374:13)
+    at async Server.requestListener (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  page: '/adminlar'
+}
+ ⨯ /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/vendor-chunks/lucide-react.js:475
+;FpQ2o0S0lDQThjR0YwYUNCa1BTSk5NVFlnTWpGMkxUSmhOQ0EwSURBZ01DQXdMVFF0TkVnMllUUWdOQ0F3SURBZ01DMDBJRFIyTWlJZ0x6NEtJQ0E4Y0dGMGFDQmtQU0pOTVRZZ015NHhNamhoTkNBMElEQWdNQ0F4SURBZ055NDNORFFpSUM4K0NpQWdQSEJoZEdnZ1pEMGlUVEl5SURJeGRpMHlZVFFnTkNBd0lEQWdNQzB6TFRNdU9EY2lJQzgrQ2lBZ1BHTnBjbU5zWlNCamVEMGlPU0lnWTNrOUlqY2lJSEk5SWpRaUlDOCtDand2YzNablBnbz0pIC0gaHR0cHM6Ly9sdWNpZGUuZGV2L2ljb25zL3VzZXJzXG4gKiBAc2VlIGh0dHBzOi8vbHVjaWRlLmRldi9ndWlkZS9wYWNrYWdlcy9sdWNpZGUtcmVhY3QgLSBEb2N1bWVudGF0aW9uXG4gKlxuICogQHBhcmFtIHtPYmplY3R9IHByb3BzIC0gTHVjaWRlIGljb25zIHByb3BzIGFuZCBhbnkgdmFsaWQgU1ZHIGF0dHJpYnV0ZVxuICogQHJldHVybnMge0pTWC5FbGVtZW50fSBKU1ggRWxlbWVudFxuICpcbiAqL1xuY29uc3QgVXNlcnMgPSBjcmVhdGVMdWNpZGVJY29uKCd1c2VycycsIF9faWNvbk5vZGUpO1xuXG5leHBvcnQgZGVmYXVsdCBVc2VycztcbiJdLCJuYW1lcyI6WyJfX2ljb25Ob2RlIiwiZCIsImtleSIsImN4IiwiY3kiLCJyIiwiVXNlcnMiLCJjcmVhdGVMdWNpZGVJY29uIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/lucide-react/dist/esm/icons/users.js\n");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+
+SyntaxError: Invalid or unexpected token
+    at wrapSafe (node:internal/modules/cjs/loader:1620:18)
+    at Module._compile (node:internal/modules/cjs/loader:1662:20)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:198:28)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:162:22)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/app/adminlar/page.js:618:47
+    at Object.<anonymous> (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/app/adminlar/page.js:621:3)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/require.js:109:84)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/load-components.js:98:84
+    at async loadComponentsImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/next-server.js:709:36)
+    at async DevServer.findPageComponents (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/dev/next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:1894:24)
+    at async DevServer.renderToResponseImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:1946:32)
+    at async DevServer.pipeImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:921:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:817:17)
+    at async /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/router-server.js:173:21)
+    at async handleRequest (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/router-server.js:350:24)
+    at async requestHandlerImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/router-server.js:374:13)
+    at async Server.requestListener (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  page: '/adminlar'
+}
+ ⨯ /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/vendor-chunks/lucide-react.js:475
+;FpQ2o0S0lDQThjR0YwYUNCa1BTSk5NVFlnTWpGMkxUSmhOQ0EwSURBZ01DQXdMVFF0TkVnMllUUWdOQ0F3SURBZ01DMDBJRFIyTWlJZ0x6NEtJQ0E4Y0dGMGFDQmtQU0pOTVRZZ015NHhNamhoTkNBMElEQWdNQ0F4SURBZ055NDNORFFpSUM4K0NpQWdQSEJoZEdnZ1pEMGlUVEl5SURJeGRpMHlZVFFnTkNBd0lEQWdNQzB6TFRNdU9EY2lJQzgrQ2lBZ1BHTnBjbU5zWlNCamVEMGlPU0lnWTNrOUlqY2lJSEk5SWpRaUlDOCtDand2YzNablBnbz0pIC0gaHR0cHM6Ly9sdWNpZGUuZGV2L2ljb25zL3VzZXJzXG4gKiBAc2VlIGh0dHBzOi8vbHVjaWRlLmRldi9ndWlkZS9wYWNrYWdlcy9sdWNpZGUtcmVhY3QgLSBEb2N1bWVudGF0aW9uXG4gKlxuICogQHBhcmFtIHtPYmplY3R9IHByb3BzIC0gTHVjaWRlIGljb25zIHByb3BzIGFuZCBhbnkgdmFsaWQgU1ZHIGF0dHJpYnV0ZVxuICogQHJldHVybnMge0pTWC5FbGVtZW50fSBKU1ggRWxlbWVudFxuICpcbiAqL1xuY29uc3QgVXNlcnMgPSBjcmVhdGVMdWNpZGVJY29uKCd1c2VycycsIF9faWNvbk5vZGUpO1xuXG5leHBvcnQgZGVmYXVsdCBVc2VycztcbiJdLCJuYW1lcyI6WyJfX2ljb25Ob2RlIiwiZCIsImtleSIsImN4IiwiY3kiLCJyIiwiVXNlcnMiLCJjcmVhdGVMdWNpZGVJY29uIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/lucide-react/dist/esm/icons/users.js\n");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+
+SyntaxError: Invalid or unexpected token
+    at wrapSafe (node:internal/modules/cjs/loader:1620:18)
+    at Module._compile (node:internal/modules/cjs/loader:1662:20)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:198:28)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:162:22)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/app/adminlar/page.js:618:47
+    at Object.<anonymous> (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/app/adminlar/page.js:621:3)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/require.js:109:84)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/load-components.js:98:84
+    at async loadComponentsImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/next-server.js:709:36)
+    at async DevServer.findPageComponents (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/dev/next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:1894:24)
+    at async DevServer.renderToResponseImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:1946:32)
+    at async DevServer.pipeImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:921:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:817:17)
+    at async /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/router-server.js:173:21)
+    at async handleRequest (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/router-server.js:350:24)
+    at async requestHandlerImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/router-server.js:374:13)
+    at async Server.requestListener (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  page: '/adminlar'
+}
+ ⨯ /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/vendor-chunks/lucide-react.js:475
+;FpQ2o0S0lDQThjR0YwYUNCa1BTSk5NVFlnTWpGMkxUSmhOQ0EwSURBZ01DQXdMVFF0TkVnMllUUWdOQ0F3SURBZ01DMDBJRFIyTWlJZ0x6NEtJQ0E4Y0dGMGFDQmtQU0pOTVRZZ015NHhNamhoTkNBMElEQWdNQ0F4SURBZ055NDNORFFpSUM4K0NpQWdQSEJoZEdnZ1pEMGlUVEl5SURJeGRpMHlZVFFnTkNBd0lEQWdNQzB6TFRNdU9EY2lJQzgrQ2lBZ1BHTnBjbU5zWlNCamVEMGlPU0lnWTNrOUlqY2lJSEk5SWpRaUlDOCtDand2YzNablBnbz0pIC0gaHR0cHM6Ly9sdWNpZGUuZGV2L2ljb25zL3VzZXJzXG4gKiBAc2VlIGh0dHBzOi8vbHVjaWRlLmRldi9ndWlkZS9wYWNrYWdlcy9sdWNpZGUtcmVhY3QgLSBEb2N1bWVudGF0aW9uXG4gKlxuICogQHBhcmFtIHtPYmplY3R9IHByb3BzIC0gTHVjaWRlIGljb25zIHByb3BzIGFuZCBhbnkgdmFsaWQgU1ZHIGF0dHJpYnV0ZVxuICogQHJldHVybnMge0pTWC5FbGVtZW50fSBKU1ggRWxlbWVudFxuICpcbiAqL1xuY29uc3QgVXNlcnMgPSBjcmVhdGVMdWNpZGVJY29uKCd1c2VycycsIF9faWNvbk5vZGUpO1xuXG5leHBvcnQgZGVmYXVsdCBVc2VycztcbiJdLCJuYW1lcyI6WyJfX2ljb25Ob2RlIiwiZCIsImtleSIsImN4IiwiY3kiLCJyIiwiVXNlcnMiLCJjcmVhdGVMdWNpZGVJY29uIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(ssr)/./node_modules/lucide-react/dist/esm/icons/users.js\n");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ^
+
+SyntaxError: Invalid or unexpected token
+    at wrapSafe (node:internal/modules/cjs/loader:1620:18)
+    at Module._compile (node:internal/modules/cjs/loader:1662:20)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at __webpack_require__.f.require (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:198:28)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:111:40
+    at Array.reduce (<anonymous>)
+    at __webpack_require__.e (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:110:67)
+    at Array.map (<anonymous>)
+    at __webpack_require__.X (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/webpack-runtime.js:162:22)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/app/adminlar/page.js:618:47
+    at Object.<anonymous> (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/server/app/adminlar/page.js:621:3)
+    at Module._compile (node:internal/modules/cjs/loader:1688:14)
+    at Object..js (node:internal/modules/cjs/loader:1820:10)
+    at Module.load (node:internal/modules/cjs/loader:1423:32)
+    at Function._load (node:internal/modules/cjs/loader:1246:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1445:12)
+    at mod.require (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:135:16)
+    at requirePage (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/require.js:109:84)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/load-components.js:98:84
+    at async loadComponentsImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/load-components.js:98:26)
+    at async DevServer.findPageComponentsImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/next-server.js:709:36)
+    at async DevServer.findPageComponents (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/dev/next-dev-server.js:577:20)
+    at async DevServer.renderPageComponent (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:1894:24)
+    at async DevServer.renderToResponseImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:1946:32)
+    at async DevServer.pipeImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:921:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/next-server.js:272:17)
+    at async DevServer.handleRequestImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/base-server.js:817:17)
+    at async /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+    at async Span.traceAsyncFn (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/trace/trace.js:154:20)
+    at async DevServer.handleRequest (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+    at async invokeRender (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/router-server.js:173:21)
+    at async handleRequest (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/router-server.js:350:24)
+    at async requestHandlerImpl (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/router-server.js:374:13)
+    at async Server.requestListener (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/server/lib/start-server.js:141:13) {
+  page: '/adminlar'
+}
+ GET /adminlar 500 in 31ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/cache/webpack/server-development/7.pack.gz_' -> '/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/cache/webpack/server-development/7.pack.gz'
+ ✓ Compiled in 1967ms (1805 modules)
+IntlError: ENVIRONMENT_FALLBACK: There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone
+    at useTranslationsImpl (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:101:13)
+    at useTranslations (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:133:10)
+    at eval (webpack-internal:///(ssr)/./node_modules/next-intl/dist/esm/development/react-client/index.js:24:14)
+    at AppShell (webpack-internal:///(ssr)/./src/shared/layout/AppShell.tsx:36:76)
+    at au (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:15122
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:45321)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808) {
+  code: 'ENVIRONMENT_FALLBACK',
+  originalMessage: 'There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone'
+}
+ GET /adminlar 200 in 470ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 839ms (1805 modules)
+IntlError: ENVIRONMENT_FALLBACK: There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone
+    at useTranslationsImpl (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:101:13)
+    at useTranslations (webpack-internal:///(ssr)/./node_modules/use-intl/dist/esm/development/react.js:133:10)
+    at eval (webpack-internal:///(ssr)/./node_modules/next-intl/dist/esm/development/react-client/index.js:24:14)
+    at AppShell (webpack-internal:///(ssr)/./src/shared/layout/AppShell.tsx:36:76)
+    at au (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:10446)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:15122
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:46505)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aj (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:53793)
+    at aC (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:52874)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:50095)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:45321)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:42922)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808)
+    at /Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16871
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:16908)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ac (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11400)
+    at aw (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:14707)
+    at a_ (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:49776)
+    at ab (/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/node_modules/next/dist/compiled/next-server/app-page.runtime.dev.js:35:11808) {
+  code: 'ENVIRONMENT_FALLBACK',
+  originalMessage: 'There is no `timeZone` configured, this can lead to markup mismatches caused by environment differences. Consider adding a global default: https://next-intl.dev/docs/configuration#time-zone'
+}
+ GET /adminlar 200 in 698ms
+ ✓ Compiled /_not-found in 258ms (1794 modules)
+ GET /_next/static/css/app/layout.css?v=1793091134786 404 in 333ms
+ GET /_next/static/chunks/main-app.js?v=1793091134786 404 in 323ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 28ms
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/mirzamahmudovgayratjon/Desktop/att-backend/att-web/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 2.4s (1805 modules)
+[?25h

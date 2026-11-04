@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="uz">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ATT — Ish haqi (Payroll) to'liq Figma board</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ============ globals.css tokenlari (aynan) ============ */
+    :root {
+      --canvas: #f6f6f7; --surface: #ffffff; --surface2: #fafafa; --field: #fafafa;
+      --ink: #18181b; --body: #3f3f46; --muted: #71717a; --subtle: #a1a1aa; --line: #eaeaed;
+      --brand: #18181b; --brandhover: #2d2d32; --brandsoft: #f1f1f3; --onbrand: #ffffff;
+      --present: #3f9d6f; --presentsoft: #eaf5ef; --presentink: #247852;
+      --late: #cc8f33; --latesoft: #faf2e4; --lateink: #966218;
+      --absent: #d0584f; --absentsoft: #fbebe9; --absentink: #ac3a32;
+      --leave: #7d70c8; --leavesoft: #f0eeea; --leaveink: #6054b0;
+      --regsoft: #eaf1fc; --regink: #345ea8; --shiftsoft: #e5f4f3; --shiftink: #1c736e;
+    }
+    /* Tailwind preflight: hamma element border-width:0 bilan boshlanadi —
+       UA default button/input ramkasi html.to.design'da qora chiqmasligi uchun */
+    *, ::before, ::after { box-sizing: border-box; margin: 0; padding: 0; border-width: 0; border-style: solid }
+    body { background: var(--canvas); font-family: 'Inter', ui-sans-serif, system-ui, sans-serif; color: var(--ink);
+      -webkit-font-smoothing: antialiased; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 40px; align-items: flex-start }
+    svg { stroke-linecap: round; stroke-linejoin: round }
+    .board { width: 1440px; background: var(--canvas) }
+    .tnum { font-variant-numeric: tabular-nums }
+
+    /* ============ AppShell ============ */
+    .app { display: flex; width: 100%; background: var(--canvas); color: var(--ink) }
+    .sb { flex: none; width: 240px; display: flex; flex-direction: column; border-right: 1px solid var(--line); background: var(--surface) }
+    .sb-head { display: flex; height: 64px; align-items: center; gap: 12px; border-bottom: 1px solid var(--line); padding: 0 20px }
+    .sb-logo { display: flex; height: 36px; width: 36px; flex: none; align-items: center; justify-content: center;
+      border-radius: 8px; background: var(--brand); color: var(--onbrand); box-shadow: 0 1px 2px rgba(15,23,42,.08) }
+    .sb-logo svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .sb-t1 { font-size: 15px; font-weight: 700; letter-spacing: -.025em; line-height: 1.1; color: var(--ink) }
+    .sb-t2 { font-size: 12px; color: var(--muted); line-height: 1.1; margin-top: 2px }
+    .sb-nav { flex: 1; padding: 16px 12px }
+    .sb-ul { list-style: none; display: flex; flex-direction: column; gap: 4px }
+    .nitem { position: relative; display: flex; align-items: center; gap: 12px; border-radius: 8px; padding: 8px 12px;
+      font-size: 14px; font-weight: 600; color: var(--muted); text-decoration: none }
+    .nitem svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; flex: none }
+    .nitem.on { background: var(--brandsoft); color: var(--ink) }
+    .nitem.on svg { color: var(--brand) }
+    .nitem.on::before { content: ""; position: absolute; left: -12px; top: 50%; transform: translateY(-50%);
+      height: 20px; width: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; background: var(--brand) }
+    .sb-foot { border-top: 1px solid var(--line); padding: 12px }
+    .maincol { display: flex; min-width: 0; flex: 1; flex-direction: column }
+    .tb { display: flex; height: 64px; flex: none; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--line); background: var(--surface); padding: 0 24px }
+    .tb-t { font-size: 16px; font-weight: 600; letter-spacing: -.025em; color: var(--ink); line-height: 1.15 }
+    .tb-d { font-size: 12px; color: var(--muted); line-height: 1.15; margin-top: 1px }
+    .tb-r { display: flex; align-items: center; gap: 8px }
+    .iconbtn { display: flex; height: 36px; width: 36px; align-items: center; justify-content: center; border-radius: 8px;
+      border: 1px solid var(--line); background: var(--surface); color: var(--body); font: inherit; cursor: pointer; padding: 0 }
+    .iconbtn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .tsep { margin: 0 4px; width: 1px; height: 24px; background: var(--line) }
+    .locbtn { display: inline-flex; height: 36px; align-items: center; gap: 6px; border-radius: 8px; border: 1px solid var(--line);
+      background: var(--surface); padding: 0 10px; color: var(--muted); font: inherit; cursor: pointer }
+    .locbtn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .locbtn .lc { font-size: 12px; font-weight: 600 }
+    .uchip { display: flex; align-items: center; gap: 10px; border-radius: 8px; padding: 4px 8px 4px 4px; border: 0;
+      background: transparent; font: inherit; color: inherit; cursor: pointer }
+    .uav { display: flex; height: 32px; width: 32px; align-items: center; justify-content: center; border-radius: 99px;
+      background: var(--brandsoft); font-size: 14px; font-weight: 600; color: var(--ink); box-shadow: inset 0 0 0 1px var(--line) }
+    .uchip b { display: block; font-size: 14px; font-weight: 700; color: var(--ink); line-height: 1.15 }
+    .uchip span { display: block; font-size: 12px; color: var(--muted); line-height: 1.15 }
+    .pg { width: 100%; max-width: 1440px; margin: 0 auto; flex: 1; padding: 24px; box-sizing: border-box }
+    .stack { display: flex; flex-direction: column; gap: 20px }
+
+    /* ============ Button ============ */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border-radius: 8px; font: inherit;
+      font-weight: 500; cursor: pointer; white-space: nowrap; border: 1px solid transparent }
+    .btn.sm { height: 32px; padding: 0 12px; font-size: 13px }
+    .btn.md { height: 36px; padding: 0 14px; font-size: 14px }
+    .btn.primary { background: var(--ink); color: var(--surface) }
+    .btn.neutral { color: var(--body); background: transparent }
+    .btn.subtle { color: var(--ink); background: transparent }
+    .btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .btn.sm svg { width: 14px; height: 14px }
+
+    /* ============ Steps bar ============ */
+    .steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; overflow: hidden;
+      border-radius: 8px; border: 1px solid var(--line); background: var(--line) }
+    .step-li { display: flex; align-items: center; gap: 12px; background: var(--surface); padding: 14px 20px }
+    .step-num { display: flex; height: 24px; width: 24px; flex: none; align-items: center; justify-content: center;
+      border-radius: 99px; background: var(--brandsoft); font-size: 12px; font-weight: 600; color: var(--ink) }
+    .step-li .sc { min-width: 0 }
+    .step-li .st { font-size: 14px; font-weight: 500; color: var(--ink) }
+    .step-li .sd { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+    .step-chev { margin-left: auto; width: 16px; height: 16px; flex: none; stroke: var(--subtle); fill: none; stroke-width: 2 }
+
+    /* ============ Section card + Tabs ============ */
+    .card { border-radius: 8px; border: 1px solid var(--line); background: var(--surface);
+      box-shadow: 0 1px 2px rgba(15,23,42,.04),0 1px 3px rgba(15,23,42,.04) }
+    .card-h { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;
+      border-bottom: 1px solid var(--line); padding: 12px 16px 0 }
+    .tabs { display: flex; gap: 4px; align-self: stretch; margin-bottom: -1px }
+    .tab { display: flex; align-items: center; gap: 8px; white-space: nowrap; border-bottom: 2px solid transparent;
+      padding: 6px 12px 12px; font: inherit; font-size: 14px; color: var(--muted); background: transparent; cursor: pointer }
+    .tab.on { border-bottom-color: var(--ink); font-weight: 500; color: var(--ink) }
+    .tab .tbc { border-radius: 4px; background: var(--brandsoft); padding: 0 6px; font-size: 12px; font-weight: 600;
+      font-variant-numeric: tabular-nums; color: var(--muted) }
+    .card-h .hbtn { margin-bottom: 10px }
+
+    /* ============ Templates layout ============ */
+    .tpl-grid { display: grid; grid-template-columns: 300px minmax(0,1fr); gap: 16px; padding: 16px; align-items: start }
+    .tpl-list { list-style: none; display: flex; flex-direction: column; gap: 6px }
+    .tpl-opt { width: 100%; border-radius: 8px; border: 1px solid transparent; background: transparent; padding: 12px 16px;
+      text-align: left; cursor: pointer; font: inherit; transition: background .15s }
+    .tpl-opt.on { border-color: var(--line); background: var(--surface2) }
+    .tpl-opt .row1 { display: flex; align-items: center; justify-content: space-between; gap: 8px }
+    .tpl-opt .nm { font-size: 14px; font-weight: 500; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+    .tpl-opt .dot { height: 6px; width: 6px; flex: none; border-radius: 99px; background: var(--ink) }
+    .tpl-opt .base { margin-top: 2px; font-size: 13px; font-variant-numeric: tabular-nums; color: var(--body) }
+    .tpl-opt .meta { margin-top: 4px; font-size: 12px; color: var(--muted) }
+
+    /* ============ Template detail ============ */
+    .detail { border-radius: 8px; border: 1px solid var(--line); background: var(--surface);
+      box-shadow: 0 1px 2px rgba(15,23,42,.04),0 1px 3px rgba(15,23,42,.04) }
+    .detail-h { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 16px;
+      border-bottom: 1px solid var(--line); padding: 20px 24px }
+    .detail-h h2 { font-size: 18px; font-weight: 600; letter-spacing: -.025em; color: var(--ink) }
+    .detail-h .dd { margin-top: 2px; font-size: 13px; color: var(--muted) }
+    .detail-h .acts { display: flex; align-items: center; gap: 4px }
+    .ib { display: flex; height: 32px; width: 32px; align-items: center; justify-content: center; border-radius: 6px;
+      border: 0; background: transparent; color: var(--muted); cursor: pointer; font: inherit; padding: 0 }
+    .ib svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border-bottom: 1px solid var(--line); background: var(--line) }
+    .stat-cell { background: var(--surface); padding: 16px 24px }
+    .stat-cell .k { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted) }
+    .stat-cell .kdot { height: 6px; width: 6px; border-radius: 99px }
+    .stat-cell .v { margin-top: 4px; font-size: 20px; font-weight: 600; letter-spacing: -.025em; color: var(--ink); font-variant-numeric: tabular-nums }
+    .dsec { padding: 20px 24px }
+    .dsec.b-top { border-top: 1px solid var(--line) }
+    .dsec h3 { font-size: 14px; font-weight: 600; color: var(--ink) }
+    .dsec .hrow { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px }
+    .dsec .hrow .sub { font-size: 12px; color: var(--muted) }
+    .rlines { margin-top: 4px; border-top: 1px solid var(--line) }
+    .rlines > * + * { border-top: 1px solid var(--line) }
+    .rline { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0 }
+    .rline .rdot { margin-top: 7px; height: 8px; width: 8px; flex: none; border-radius: 99px }
+    .rline .rbody { min-width: 0; flex: 1 }
+    .rline .rtop { display: flex; flex-wrap: wrap; align-items: center; gap: 8px }
+    .rline .rname { font-size: 14px; font-weight: 500; color: var(--ink) }
+    .rline .rinact { border-radius: 4px; background: var(--field); padding: 0 6px; font-size: 11px; font-weight: 500; color: var(--muted) }
+    .rline .rdesc { margin-top: 2px; font-size: 13px; line-height: 1.6; color: var(--body) }
+    .rline .rextra { margin-top: 2px; font-size: 12px; color: var(--muted) }
+    .pos-wrap { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px }
+    .pos-chip { border-radius: 6px; border: 1px solid var(--line); padding: 2px 8px; font-size: 13px; color: var(--body) }
+    .match { margin-top: 16px; display: flex; align-items: center; gap: 12px }
+    .avstack { display: flex }
+    .avstack > * { margin-left: -8px }
+    .avstack > *:first-child { margin-left: 0 }
+    .av { height: 36px; width: 36px; flex: none; border-radius: 99px; object-fit: cover; box-shadow: 0 0 0 2px var(--surface), inset 0 0 0 1px var(--line) }
+    .avf { display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--brandsoft);
+      font-size: 12px; font-weight: 600; color: var(--body) }
+    .match .mt { font-size: 13px; color: var(--muted) }
+    .match .mt b { font-weight: 600; color: var(--ink) }
+
+    /* ============ Rules table ============ */
+    .rt-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 16px }
+    .seg { display: inline-flex; height: 40px; align-items: center; border-radius: 8px; border: 1px solid var(--line);
+      background: var(--field); padding: 4px }
+    .seg button { border: 0; background: transparent; font: inherit; cursor: pointer; border-radius: 6px; padding: 0 12px;
+      height: 30px; font-size: 13px; font-weight: 500; color: var(--muted); white-space: nowrap }
+    .seg button.on { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(15,23,42,.04),0 1px 3px rgba(15,23,42,.04);
+      outline: 1px solid var(--line) }
+    .search { display: flex; height: 40px; width: 256px; align-items: center; border-radius: 8px; border: 1px solid var(--line); background: var(--field) }
+    .search .lead { display: flex; flex: none; align-items: center; padding-left: 12px; color: var(--muted) }
+    .search .lead svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .search input { flex: 1; min-width: 0; border: 0; background: transparent; font: inherit; font-size: 14px; color: var(--ink); padding: 0 12px; outline: none }
+    .search input::placeholder { color: var(--subtle) }
+    table.rt { width: 100%; min-width: 860px; border-collapse: collapse; text-align: left; font-size: 14px }
+    table.rt thead tr { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface2) }
+    table.rt th { white-space: nowrap; padding: 10px 16px; font-size: 12px; font-weight: 600; color: var(--muted) }
+    table.rt tbody tr { border-bottom: 1px solid var(--line) }
+    table.rt tbody tr:last-child { border-bottom: 0 }
+    table.rt td { padding: 14px 16px; vertical-align: top }
+    table.rt .c-rule { max-width: 420px }
+    table.rt .c-rule .rn { font-size: 14px; font-weight: 500; color: var(--ink) }
+    table.rt tr.off .rn { color: var(--muted) }
+    table.rt .c-rule .rd { margin-top: 2px; font-size: 13px; line-height: 1.6; color: var(--muted) }
+    table.rt .c-rule .re { margin-top: 2px; font-size: 12px; color: var(--subtle) }
+    table.rt .nowrap { white-space: nowrap }
+    table.rt .c-calc, table.rt .c-use { font-size: 13px; color: var(--body) }
+    table.rt .c-use { font-variant-numeric: tabular-nums }
+    table.rt .c-edit { text-align: right }
+    .kbadge { display: inline-flex; align-items: center; gap: 6px; border-radius: 6px; padding: 2px 8px; font-size: 12px; font-weight: 600 }
+    .kbadge .kd { height: 6px; width: 6px; border-radius: 99px }
+    .kbadge.pen { background: var(--absentsoft); color: var(--absentink) }
+    .kbadge.pen .kd { background: var(--absent) }
+    .kbadge.bon { background: var(--presentsoft); color: var(--presentink) }
+    .kbadge.bon .kd { background: var(--present) }
+    .swt { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; background: transparent; border: 0; cursor: pointer; font: inherit }
+    .swt .track { position: relative; display: inline-flex; height: 20px; width: 36px; align-items: center; border-radius: 99px; transition: background .15s }
+    .swt .track.on { background: var(--present) }
+    .swt .track.off { background: var(--line) }
+    .swt .knob { display: inline-block; height: 16px; width: 16px; border-radius: 99px; background: var(--surface);
+      box-shadow: 0 1px 2px rgba(15,23,42,.2); transition: transform .2s }
+    .swt .track.on .knob { transform: translateX(18px) }
+    .swt .track.off .knob { transform: translateX(2px) }
+    .swt .st.on { color: var(--presentink) }
+    .swt .st.off { color: var(--muted) }
+
+    /* ============ Drawer (o'ngdan ochiladigan panel — fixed scrim bilan) ============ */
+    .frame { position: relative; display: flex; width: 100% }
+    .pagebg { position: absolute; inset: 0; overflow: hidden }
+    .scrim { position: absolute; inset: 0; z-index: 40; background: rgba(0,0,0,.4) }
+    .drawer { position: relative; z-index: 50; margin-left: auto; flex: none; width: 576px; display: flex; flex-direction: column;
+      background: var(--surface); border-left: 1px solid var(--line); box-shadow: 0 25px 50px -12px rgba(0,0,0,.25) }
+    .drawer.wide { width: 672px }
+    .dr-h { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex: none;
+      border-bottom: 1px solid var(--line); padding: 16px 24px }
+    .dr-h h2 { font-size: 16px; font-weight: 600; letter-spacing: -.025em; color: var(--ink) }
+    .dr-h .dr-sub { margin-top: 2px; font-size: 13px; color: var(--muted) }
+    .dr-x { display: flex; height: 32px; width: 32px; flex: none; align-items: center; justify-content: center;
+      border-radius: 8px; border: 0; background: transparent; color: var(--muted); cursor: pointer; padding: 0 }
+    .dr-x svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .dr-b { flex: 1; padding: 20px 24px }
+    .dr-f { display: flex; align-items: center; justify-content: flex-end; gap: 8px; border-top: 1px solid var(--line); padding: 14px 24px }
+    .dr-f .cnt { margin-right: auto; font-size: 13px; color: var(--muted) }
+    .dr-stack { display: flex; flex-direction: column; gap: 24px }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px }
+    .grid-kind { display: grid; grid-template-columns: auto 1fr; gap: 16px }
+
+    /* ============ Form primitives ============ */
+    .fl { margin-bottom: 6px; display: flex; align-items: baseline; justify-content: space-between; gap: 8px }
+    .fl label { font-size: 13px; font-weight: 500; color: var(--body) }
+    .fl label .req { margin-left: 2px; color: var(--absentink) }
+    .fl .opt { font-size: 12px; color: var(--subtle) }
+    .fhint { margin-top: 6px; font-size: 12px; color: var(--subtle) }
+    .ti { display: flex; height: 40px; align-items: center; border-radius: 8px; border: 1px solid var(--line); background: var(--field) }
+    .ti:hover { border-color: rgba(24,24,27,.2) }
+    .ti.err { border-color: rgba(208,88,79,.6) }
+    .ti .lead { display: flex; flex: none; align-items: center; padding-left: 12px; color: var(--muted) }
+    .ti .lead svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .ti input { flex: 1; min-width: 0; height: 100%; border: 0; background: transparent; font: inherit; font-size: 14px;
+      color: var(--ink); padding: 0 12px; outline: none }
+    .ti input::placeholder { color: var(--subtle) }
+    .ti .trail { display: flex; flex: none; align-items: center; padding-right: 12px; font-size: 14px; color: var(--muted) }
+    .ti .num { font-variant-numeric: tabular-nums }
+    .sm-btn { display: flex; height: 40px; width: 100%; align-items: center; gap: 8px; border-radius: 8px;
+      border: 1px solid var(--line); background: var(--field); padding: 0 12px; font: inherit; font-size: 14px; cursor: pointer }
+    .sm-btn .sv { min-width: 0; flex: 1; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink) }
+    .sm-btn .sv.ph { color: var(--subtle) }
+    .sm-btn .chev { width: 16px; height: 16px; flex: none; stroke: var(--subtle); fill: none; stroke-width: 2 }
+    .sm-pop { position: absolute; left: 0; top: 44px; z-index: 40; width: 100%; min-width: 260px; overflow: hidden;
+      border-radius: 8px; border: 1px solid var(--line); background: var(--surface); box-shadow: 0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1) }
+    .sm-pop .sq { position: relative; border-bottom: 1px solid var(--line) }
+    .sm-pop .sq svg.sic { position: absolute; left: 12px; top: 12px; width: 16px; height: 16px; stroke: var(--subtle); fill: none; stroke-width: 2 }
+    .sm-pop .sq input { width: 100%; height: 40px; background: transparent; border: 0; padding: 0 12px 0 36px;
+      font: inherit; font-size: 14px; color: var(--ink); outline: none }
+    .sm-pop .sq input::placeholder { color: var(--subtle) }
+    .sm-pop .list { padding: 4px; max-height: 256px; overflow-y: auto }
+    .sm-pop .grp { padding: 8px 8px 4px; font-size: 11px; font-weight: 600; color: var(--subtle) }
+    .sm-opt { display: flex; width: 100%; align-items: center; gap: 8px; border-radius: 6px; border: 0; background: transparent;
+      padding: 6px 8px; font: inherit; font-size: 13px; color: var(--body); text-align: left; cursor: pointer }
+    .sm-opt .ckc { display: flex; height: 16px; width: 16px; flex: none; align-items: center; justify-content: center }
+    .sm-opt .ckc svg { width: 16px; height: 16px; stroke: var(--ink); fill: none; stroke-width: 2.5 }
+    .sm-opt.sel { font-weight: 600; color: var(--ink) }
+    .segm { display: inline-flex; height: 40px; align-items: center; border-radius: 8px; border: 1px solid var(--line); background: var(--field); padding: 4px }
+    .segm button { border: 0; background: transparent; font: inherit; cursor: pointer; border-radius: 6px; padding: 0 12px;
+      height: 100%; font-size: 13px; font-weight: 500; color: var(--muted); white-space: nowrap }
+    .segm button.on { background: var(--surface); color: var(--ink); box-shadow: 0 1px 2px rgba(15,23,42,.04),0 1px 3px rgba(15,23,42,.04);
+      outline: 1px solid var(--line) }
+    .step { display: flex; height: 40px; align-items: center; overflow: hidden; border-radius: 8px; border: 1px solid var(--line); background: var(--field) }
+    .step button { display: flex; height: 100%; width: 36px; flex: none; align-items: center; justify-content: center;
+      border: 0; background: transparent; color: var(--muted); cursor: pointer; font: inherit; padding: 0 }
+    .step button svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .step .sv2 { flex: 1; min-width: 0; height: 100%; display: flex; align-items: center; justify-content: center; gap: 4px;
+      border-left: 1px solid var(--line); border-right: 1px solid var(--line); font-size: 14px; font-variant-numeric: tabular-nums; color: var(--ink) }
+    .step .sv2 b { font-weight: 600 }
+    .step .sv2 span { color: var(--muted); font-weight: 400 }
+    .tg { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px }
+    .tg .tgl { min-width: 0 }
+    .tg .tgl .tl { display: block; font-size: 14px; font-weight: 500; color: var(--ink) }
+    .tg .tgl .td { display: block; margin-top: 2px; font-size: 12px; color: var(--muted) }
+    .tg .tgb { margin-top: 2px; display: inline-flex; height: 20px; width: 36px; flex: none; align-items: center;
+      border-radius: 99px; border: 0; cursor: pointer; padding: 0 }
+    .tg .tgb.on { background: var(--ink) }
+    .tg .tgb.off { background: var(--line) }
+    .tg .tknob { display: inline-block; height: 16px; width: 16px; margin-left: 2px; border-radius: 99px;
+      background: var(--surface); box-shadow: 0 1px 2px rgba(15,23,42,.2) }
+    .tg .tgb.on .tknob { margin-left: 18px }
+    .estep { display: flex; align-items: center; gap: 10px; margin-bottom: 12px }
+    .estep .n { display: flex; height: 20px; width: 20px; flex: none; align-items: center; justify-content: center;
+      border-radius: 99px; background: var(--ink); font-size: 11px; font-weight: 600; color: var(--surface) }
+    .estep h3 { font-size: 14px; font-weight: 600; color: var(--ink) }
+    .estep .op { font-size: 12px; color: var(--subtle) }
+    .res { border-radius: 8px; border: 1px solid var(--line); background: var(--surface2); padding: 16px }
+    .res .rk { font-size: 12px; font-weight: 500; color: var(--muted) }
+    .res .rs { margin-top: 6px; font-size: 14px; font-weight: 500; line-height: 1.625; color: var(--ink) }
+    .res .rx { margin-top: 4px; font-size: 13px; color: var(--muted) }
+    .res .rsep { margin-top: 12px; border-top: 1px solid var(--line); padding-top: 12px }
+    .res .rexe { font-size: 12px; color: var(--muted) }
+    .res .rexb { margin-top: 4px; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px }
+    .res .rexs { font-size: 13px; font-variant-numeric: tabular-nums; color: var(--body) }
+    .res .rexv { font-size: 16px; font-weight: 600; font-variant-numeric: tabular-nums }
+    .res .rexv.pen { color: var(--absentink) }
+    .res .rexv.bon { color: var(--presentink) }
+    .tier { border-radius: 8px; border: 1px solid var(--line); overflow: hidden }
+    .tier .th, .tier .tr { display: grid; grid-template-columns: 1fr 1.4fr 40px; gap: 12px; align-items: center; padding: 8px 12px }
+    .tier .th { border-bottom: 1px solid var(--line); background: var(--surface2); font-size: 12px; font-weight: 500; color: var(--muted) }
+    .tier .tr { border-bottom: 1px solid var(--line) }
+    .tier .tr:last-child { border-bottom: 0 }
+    .tier .del { display: flex; height: 32px; width: 32px; align-items: center; justify-content: center; border-radius: 6px;
+      border: 0; background: transparent; color: var(--muted); cursor: pointer; padding: 0 }
+    .tier .del svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .addtier { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; border-radius: 8px; border: 0;
+      background: transparent; padding: 0 12px; height: 32px; font: inherit; font-size: 13px; font-weight: 500; color: var(--ink); cursor: pointer }
+    .addtier svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .oc { display: flex; width: 100%; align-items: flex-start; gap: 12px; border-radius: 8px; border: 1px solid var(--line);
+      padding: 14px; text-align: left; font: inherit; cursor: pointer; background: var(--surface) }
+    .oc.sel { background: var(--surface2) }
+    .oc .oci { display: flex; height: 32px; width: 32px; flex: none; align-items: center; justify-content: center;
+      border-radius: 6px; background: var(--brandsoft); color: var(--muted) }
+    .oc.sel .oci { color: var(--ink) }
+    .oc .oci svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .oc .ocb { min-width: 0; flex: 1 }
+    .oc .oct { display: block; font-size: 14px; font-weight: 600; color: var(--ink) }
+    .oc .ocd { display: block; margin-top: 2px; font-size: 12px; line-height: 1.375; color: var(--muted) }
+    .ck { margin-top: 2px; display: flex; height: 18px; width: 18px; flex: none; align-items: center; justify-content: center;
+      border-radius: 5px; border: 1px solid var(--line); background: var(--surface) }
+    .ck.on { border-color: var(--ink); background: var(--ink); color: var(--surface) }
+    .ck svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 3 }
+    .ck.round { border-radius: 99px }
+    .rlist { list-style: none; margin-top: 12px; border-radius: 8px; border: 1px solid var(--line); overflow: hidden }
+    .rlist li + li { border-top: 1px solid var(--line) }
+    .rrow { display: flex; width: 100%; align-items: flex-start; gap: 12px; border: 0; background: transparent;
+      padding: 12px 14px; text-align: left; font: inherit; cursor: pointer }
+    .rrow.on { background: var(--surface2) }
+    .rrow .rb { min-width: 0; flex: 1 }
+    .rrow .rt1 { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--ink) }
+    .rrow .rt1 .inact { border-radius: 4px; background: var(--field); padding: 0 6px; font-size: 11px; font-weight: 500; color: var(--muted) }
+    .rrow .rd { display: block; margin-top: 2px; font-size: 13px; color: var(--muted) }
+    .kindhead { margin-top: 12px; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: var(--muted) }
+    .kindhead .kd2 { height: 6px; width: 6px; border-radius: 99px }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px }
+    .chip { display: inline-flex; height: 28px; align-items: center; gap: 4px; border-radius: 6px; border: 1px solid var(--line);
+      background: var(--surface); padding: 0 4px 0 10px; font-size: 13px; color: var(--ink) }
+    .chip button { display: flex; height: 20px; width: 20px; align-items: center; justify-content: center; border-radius: 4px;
+      border: 0; background: transparent; color: var(--muted); cursor: pointer; padding: 0 }
+    .chip button svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2 }
+    .addsm { position: relative; max-width: 320px }
+    .e8 { height: 32px }
+  </style>
+</head>
+
+<body style="display:block;gap:0"><div class="board">
+    <div class="frame">
+      <div class="app pagebg">
+        <aside class="sb">
+          <div class="sb-head"><div class="sb-logo"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7V5a1 1 0 0 1 1-1h2M17 4h2a1 1 0 0 1 1 1v2M20 17v2a1 1 0 0 1-1 1h-2M7 20H5a1 1 0 0 1-1-1v-2"/><path d="M12 9v2M9h.01M15 9h.01M9.5 14a3.5 3.5 0 0 0 5 0"/></svg></div><div><div class="sb-t1">ATT Davomat</div><div class="sb-t2">Boshqaruv paneli</div></div></div>
+          <nav class="sb-nav"><ul class="sb-ul">
+            <li><a class="nitem"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/></svg>Monitoring</a></li>
+            <li><a class="nitem"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Xodimlar</a></li>
+            <li><a class="nitem on"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>Ish haqi</a></li>
+            <li><a class="nitem"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/></svg>Filiallar</a></li>
+          </ul></nav>
+          <div class="sb-foot"><a class="nitem"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg>Chiqish</a></div>
+        </aside>
+        <div class="maincol">
+          <header class="tb"><div><div class="tb-t">Ish haqi</div><div class="tb-d">Chorshanba, 28-oktabr 2026</div></div><div class="tb-r"><button class="locbtn"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></svg><span class="lc">O'zbekcha</span></button><span class="tsep"></span><button class="uchip"><span class="uav">R</span><span><b>Rabola Admin</b><span>Administrator</span></span></button></div></header>
+          <div class="pg"><div class="stack">
+            <ol class="steps" style="gap:8px">
+              <li class="step-li"><span class="step-num">1</span><div class="sc"><div class="st">Qoida yarating</div><div class="sd">Jarima yoki bonus sharti va summasi</div></div></li>
+              <li class="step-li"><span class="step-num">2</span><div class="sc"><div class="st">Shablonga yig'ing</div><div class="sd">Asosiy maosh + kerakli qoidalar</div></div></li>
+              <li class="step-li"><span class="step-num">3</span><div class="sc"><div class="st">Xodimga biriktiring</div><div class="sd">Xodim qo'shishda shablon tanlanadi</div></div></li>
+            </ol>
+            <section class="card"><div class="card-h"><div class="tabs" style="gap:4px"><button class="tab" style="gap:8px">Shablonlar<span class="tbc">5</span></button><button class="tab on" style="gap:8px">Jarima va bonus qoidalari<span class="tbc">8</span></button></div></div>
+              <div class="rt-toolbar"><div class="seg"><button class="on">Barchasi · 8</button><button>Jarimalar · 3</button><button>Bonuslar · 5</button></div></div>
+              <table class="rt"><thead><tr><th>Qoida</th><th>Turi</th><th>Hisoblash</th><th>Shablonlarda</th><th>Holati</th><th></th></tr></thead>
+                <tbody>
+                  <tr><td class="c-rule"><div class="rn">Sababsiz kelmaslik</div><div class="rd">Sababsiz ishga kelmasa — har holat uchun okladning 5% ushlab qolinadi.</div></td><td><span class="kbadge pen"><span class="kd"></span>Jarima</span></td><td class="c-calc">Okladdan %</td><td class="c-use">4 ta</td><td><span class="swt"><span class="track on"><span class="knob"></span></span><span class="st on">Faol</span></span></td><td></td></tr>
+                </tbody></table>
+            </section>
+          </div></div>
+        </div>
+      </div>
+      <div class="scrim"></div>
+      <div class="drawer">
+        <div class="dr-h"><div><h2>Qoidani tahrirlash</h2><p class="dr-sub">Jarima yoki bonus qachon va qancha hisoblanishini belgilang</p></div><button class="dr-x"><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+        <div class="dr-b">
+          <div class="dr-stack">
+            <div class="grid-kind">
+              <div><div class="fl"><label>Turi</label></div><div class="segm"><button class="on">Jarima</button><button>Bonus</button></div></div>
+              <div><div class="fl"><label>Qoida nomi<span class="req">*</span></label></div><div class="ti"><input value="Sababsiz kelmaslik" /></div></div>
+            </div>
+            <section>
+              <div class="estep"><span class="n">1</span><h3>Qachon ishlaydi?</h3></div>
+              <div class="sm-btn"><span class="sv">Sababsiz kelmaslik</span><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" class="chev" viewBox="0 0 24 24"><path d="m7 15 5 5 5-5M7 9l5-5 5 5"/></svg></div>
+              <div style="margin-top:16px;max-width:280px"><div class="fl"><label>Oyiga kechiriladigan holatlar</label></div><div class="step"><button><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14"/></svg></button><span class="sv2"><b>0</b> <span>marta</span></span><button><svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button></div><p class="fhint">Birinchi N holat hisoblanmaydi</p></div>
+            </section>
+            <section>
+              <div class="estep"><span class="n">2</span><h3>Qancha ushlab qolinadi?</h3></div>
+              <div class="fl" style="margin-bottom:8px"><label>Hisoblash usuli</label></div>
+              <div class="segm"><button>Qat'iy summa</button><button class="on">Okladdan %</button></div>
+              <div style="margin-top:16px;max-width:200px"><div class="fl"><label>Har holat uchun okladdan</label></div><div class="ti"><input class="num" value="5" /><span class="trail">%</span></div></div>
+            </section>
+            <section>
+              <div class="estep"><span class="n">3</span><h3>Cheklov</h3><span class="op">Ixtiyoriy</span></div>
+              <div class="tg"><div class="tgl"><span class="tl">Oylik maksimal summa</span><span class="td">Bir oyda shundan ko‘p ushlab qolinmaydi</span></div><button class="tgb off"><span class="tknob"></span></button></div>
+            </section>
+            <section class="res">
+              <div class="rk">Natija</div>
+              <p class="rs">Sababsiz ishga kelmasa — har holat uchun okladning 5% ushlab qolinadi.</p>
+              <div class="rsep"><div class="rexe">Misol: Xodim oyda 1 kun sababsiz kelmasa</div><div class="rexb"><span class="rexs">1 × 300 000</span><span class="rexv pen">−300 000 so'm</span></div></div>
+            </section>
+          </div>
+        </div>
+        <div class="dr-f"><button class="btn neutral md">Bekor qilish</button><button class="btn primary md" style="padding:0 16px">Qoidani saqlash</button></div>
+      </div>
+    </div>
+  </div>
+</body></html>
